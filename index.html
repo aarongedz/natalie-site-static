@@ -35,7 +35,7 @@
             background-color: var(--bg-main);
             color: var(--text-main);
             
-            /* 1. Force the layout to lock onto the window frame, ignoring parent iframe squishing */
+            /* 1. Force the layout to lock onto the window frame */
             position: fixed;
             top: 0;
             left: 0;
@@ -43,9 +43,9 @@
             bottom: 0;
             width: 100vw;
             
-            /* 2. Remove the unstable vh/dvh variables */
-            height: 100%;
-            max-height: 100%;
+            /* 2. Dynamically subtract Safari's tab bars and toolbars */
+            height: 100svh;
+            max-height: 100svh;
             
             display: flex;
             overflow: hidden;
