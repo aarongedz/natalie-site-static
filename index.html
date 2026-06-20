@@ -431,10 +431,31 @@
         }
 
         @media (max-width: 900px) {
-            body { flex-direction: column; overflow-y: auto; }
-            .sidebar { width: 100%; max-width: 100%; min-width: 100%; height: auto; border-right: none; border-bottom: 2px solid rgba(130, 135, 248, 0.1); }
-            .main-viewport { height: auto; padding: 30px; overflow-y: visible; }
-            .skills-pane-box h4 { min-height: auto; padding-bottom: 6px; }
+            body { 
+                flex-direction: column; 
+                overflow-y: auto; 
+                position: relative; /* Overrides the 'fixed' placement so the phone can scroll naturally */
+                height: auto;       /* Allows the body to expand down with the content */
+                max-height: none; 
+            }
+            .sidebar { 
+                width: 100%; 
+                max-width: 100%; 
+                min-width: 100%; 
+                height: auto; 
+                border-right: none; 
+                border-bottom: 2px solid rgba(130, 135, 248, 0.1); 
+                overflow-y: visible; /* Ensures content doesn't get trapped in a tiny box on phone screens */
+            }
+            .main-viewport { 
+                height: auto; 
+                padding: 30px; 
+                overflow-y: visible; 
+            }
+            .skills-pane-box h4 { 
+                min-height: auto; 
+                padding-bottom: 6px; 
+            }
         }
     </style>
 </head>
