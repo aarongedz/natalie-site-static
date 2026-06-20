@@ -84,13 +84,13 @@
             width: 320px;
             min-width: 320px;
             max-width: 320px;
-            height: 100vh;
+            height: 100%;        /* Changed from 100vh to scale perfectly within the fixed body limits */
             background-color: var(--bg-sidebar);
             border-right: 2px solid rgba(130, 135, 248, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 45px 30px;
+            padding: 45px 30px;  /* Spacing remains exactly as requested */
             z-index: 10;
             position: relative;
             box-shadow: 4px 0 25px rgba(57, 74, 111, 0.03);
@@ -196,7 +196,7 @@
 
         .main-viewport {
             flex-grow: 1;
-            height: 100vh;
+            height: 100%;        /* Changed from 100vh to anchor tightly inside the active window */
             padding: 60px;
             overflow-y: auto;
             position: relative;
