@@ -433,9 +433,10 @@
         @media (max-width: 900px) {
             body { 
                 flex-direction: column; 
-                overflow-y: auto; 
-                position: relative; /* Overrides the 'fixed' placement so the phone can scroll naturally */
-                height: auto;       /* Allows the body to expand down with the content */
+                overflow-y: auto !important; /* Force browser to re-enable scrolling thread */
+                position: static;            /* Completely removes the fixed desktop frame lock */
+                width: 100%;                 /* Reverts desktop 100vw to standard scaling */
+                height: auto; 
                 max-height: none; 
             }
             .sidebar { 
@@ -445,7 +446,7 @@
                 height: auto; 
                 border-right: none; 
                 border-bottom: 2px solid rgba(130, 135, 248, 0.1); 
-                overflow-y: visible; /* Ensures content doesn't get trapped in a tiny box on phone screens */
+                padding: 35px 25px;          /* Slightly tighter padding for smaller phone viewports */
             }
             .main-viewport { 
                 height: auto; 
