@@ -34,11 +34,21 @@
             font-family: var(--font-family);
             background-color: var(--bg-main);
             color: var(--text-main);
-            height: 100vh;
-            max-height: 100vh;
+            
+            /* 1. Force the layout to lock onto the window frame, ignoring parent iframe squishing */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            
+            /* 2. Remove the unstable vh/dvh variables */
+            height: 100%;
+            max-height: 100%;
+            
             display: flex;
             overflow: hidden;
-            position: relative;
         }
 
         .bubble-1 {
@@ -151,6 +161,8 @@
             padding-top: 30px;
             background-color: var(--bg-sidebar);
             z-index: 12;
+            flex-shrink: 0; /* Prevents it from crushing or altering size on load */
+            margin-top: auto; /* Guarantees it pushes to the absolute bottom of the flexbox */
         }
 
         .contact-line {
@@ -195,16 +207,23 @@
         .tab-content {
             display: none;
             opacity: 0;
-            transform: translateY(15px);
+            transform: translateY(4px); /* Greatly reduced to prevent massive layout shifts */
         }
 
         .tab-content.active {
             display: block;
-            animation: cheerfulFadeIn 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation: cheerfulFadeIn 0.3s ease-out forwards;
         }
 
         @keyframes cheerfulFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .top-menu-group {
+            flex-grow: 1;
         }
 
         .pane-title {
@@ -428,7 +447,7 @@
         <div class="top-menu-group">
             <div class="profile-block">
                 <h1>Natalie Romeo</h1>
-                <span class="title-tag">Operations Specialist</span>
+                <span class="title-tag">strategic Leadership</span>
             </div>
 
             <nav class="nav-tabs">
@@ -577,7 +596,7 @@
                         <h4>Bella's Bakery Matrix Study</h4>
                         <p>Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways, information pipelines, and communications hierarchies to bypass operational deficiencies.</p>
                     </div>
-                    <a href="assets/Business Report Project.pdf" class="action-link" download>Download Business Report</a>
+                    <a href="assets/Business Report Project.pdf" class="action-link" target="_blank" download>Download Business Report</a>
                 </div>
 
                 <div class="artifact-card">
@@ -586,7 +605,7 @@
                         <h4>Green City Design Proposal</h4>
                         <p>Formulated an urban environmental framework plan for Downtown Winter Garden incorporating urban agriculture community spaces, high/low pressure sodium energy savings grids, and pervious concrete street layouts.</p>
                     </div>
-                    <a href="assets/Green City Design.pdf" class="action-link" download>Download Sustainability Study</a>
+                    <a href="assets/Green City Design.pdf" class="action-link" target="_blank" download>Download Sustainability Study</a>
                 </div>
 
                 <div class="artifact-card">
@@ -595,7 +614,7 @@
                         <h4>The Walt Disney Culture Inventory</h4>
                         <p>Executed an intensive seven-week organizational assessment mapping cast member onboarding traditions, corporate core values, inclusion strategies, and cultural frameworks against day-to-day service execution models.</p>
                     </div>
-                    <a href="assets/Cultural Analysis Report.pdf" class="action-link" download>Download Culture Analysis</a>
+                    <a href="assets/Cultural Analysis Report.pdf" class="action-link" target="_blank" download>Download Culture Analysis</a>
                 </div>
 
                 <div class="artifact-card">
@@ -604,7 +623,7 @@
                         <h4>Comic Script: "Superpowers"</h4>
                         <p>Created a comprehensive comic panel script architecture for LIT313 tracking structured scene pacing grids, emotional expressions, character narrative development fields, and mindfulness storytelling frameworks.</p>
                     </div>
-                    <a href="assets/Comic Story.pdf" class="action-link" download>Download Script Architecture</a>
+                    <a href="assets/Comic Story.pdf" class="action-link" target="_blank" download>Download Script Architecture</a>
                 </div>
 
                 <div class="artifact-card">
@@ -613,7 +632,7 @@
                         <h4>Breaking the Glass Ceiling Study</h4>
                         <p>Compiled an academic research synthesis for ENG310 analyzing organizational bias mitigation infrastructure, workplace equity barriers, and corporate sponsorship programs for aspiring women entrepreneurs.</p>
                     </div>
-                    <a href="assets/ENG310 Breaking the Glass Ceiling.pdf" class="action-link" download>Download Qualitative Study</a>
+                    <a href="assets/ENG310 Breaking the Glass Ceiling.pdf" class="action-link" target="_blank" download>Download Qualitative Study</a>
                 </div>
 
                 <div class="artifact-card">
@@ -622,7 +641,7 @@
                         <h4>The Significance of Ballroom Culture Today</h4>
                         <p>Authored a comprehensive historical research report analyzing the multi-generational impact of Ballroom culture, kinship structures, and safe space refuges within modern multiracial communities.</p>
                     </div>
-                    <a href="assets/the importance of ballroom culture today.pdf" class="action-link" download>Download Historical Paper</a>
+                    <a href="assets/the importance of ballroom culture today.pdf" class="action-link" target="_blank" download>Download Historical Paper</a>
                 </div>
 
                 <div class="artifact-card">
@@ -631,7 +650,7 @@
                         <h4>Harmony: A Cultural History Narrative</h4>
                         <p>Wrote an evocative literary piece tracking traditional Confucian moral principles and historical ideologies against a changing industrial backdrop during mid-20th century China.</p>
                     </div>
-                    <a href="assets/Harmony.pdf" class="action-link" download>Download Narrative Paper</a>
+                    <a href="assets/Harmony.pdf" class="action-link" target="_blank" download>Download Narrative Paper</a>
                 </div>
             </div>
         </div>
