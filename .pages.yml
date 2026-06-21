@@ -1,92 +1,78 @@
 content:
-  - name: portfolio_home
-    label: "Master Website Editor"
+  - name: profile
+    label: "1. Profile Info"
     type: file
-    path: "index.html"
-    format: yaml-frontmatter
+    path: "data/profile.yml"
+    format: yaml
     fields:
-      - name: name
-        label: "Profile Name"
-        type: string
-      - name: tagline
-        label: "Professional Tagline"
-        type: string
-      - name: phone
-        label: "Phone Number"
-        type: string
-      - name: email
-        label: "Email Address"
-        type: string
-      - name: linkedin
-        label: "LinkedIn URL"
-        type: string
-        
-      - name: experience_tab
-        label: "Tab 1: Experience Sections"
+      - { name: name, label: "Profile Name", type: string }
+      - { name: tagline, label: "Professional Tagline", type: string }
+      - { name: phone, label: "Phone Number", type: string }
+      - { name: email, label: "Email Address", type: string }
+      - { name: linkedin, label: "LinkedIn URL", type: string }
+
+  - name: experience
+    label: "2. Experience"
+    type: file
+    path: "data/experience.yml"
+    format: yaml
+    fields:
+      - name: items
+        label: "Job Roles"
         type: list
         fields:
-          - name: role
-            label: "Job Title"
-            type: string
-          - name: company
-            label: "Company/Venue"
-            type: string
-          - name: timeline
-            label: "Dates Active"
-            type: string
+          - { name: role, label: "Job Title", type: string }
+          - { name: company, label: "Company/Venue", type: string }
+          - { name: timeline, label: "Dates Active", type: string }
           - name: bullets
             label: "Accomplishment Bullets"
             type: list
-            field: { type: string, label: "Bullet" }
+            field: { type: string, label: "Bullet Line" }
 
-      - name: education_tab
-        label: "Tab 2: Education Tracks"
+  - name: education
+    label: "3. Education"
+    type: file
+    path: "data/education.yml"
+    format: yaml
+    fields:
+      - name: items
+        label: "Education Tracks"
         type: list
         fields:
-          - name: degree
-            label: "Degree/Certificate"
-            type: string
-          - name: school
-            label: "Institution"
-            type: string
-          - name: date
-            label: "Graduation Date"
-            type: string
-          - name: focus
-            label: "Specialization Major Focus"
-            type: string
-          - name: description
-            label: "Track Overview"
-            type: text
+          - { name: degree, label: "Degree/Certificate", type: string }
+          - { name: school, label: "Institution", type: string }
+          - { name: date, label: "Graduation Date", type: string }
+          - { name: focus, label: "Specialization Focus", type: string }
+          - { name: description, label: "Overview", type: text }
 
-      - name: academic_tab
-        label: "Tab 3: Academic Works Dashboard"
+  - name: academic
+    label: "4. Academic Work"
+    type: file
+    path: "data/academic.yml"
+    format: yaml
+    fields:
+      - name: items
+        label: "Project Showcase"
         type: list
         fields:
-          - name: tag
-            label: "Subject/Domain Tag"
-            type: string
-          - name: title
-            label: "Project Title"
-            type: string
-          - name: desc
-            label: "Project Details Overview"
-            type: text
-          - name: link
-            label: "Document Asset Path (Optional)"
-            type: string
-          - name: link_text
-            label: "Link Button Label Text"
-            type: string
+          - { name: tag, label: "Subject Tag", type: string }
+          - { name: title, label: "Project Title", type: string }
+          - { name: desc, label: "Project Details", type: text }
+          - { name: link, label: "Asset PDF Path", type: string }
+          - { name: link_text, label: "Button Label", type: string }
 
-      - name: skills_tab
-        label: "Tab 4: Competencies Clusters"
+  - name: skills
+    label: "5. Competencies"
+    type: file
+    path: "data/skills.yml"
+    format: yaml
+    fields:
+      - name: items
+        label: "Skill Groups"
         type: list
         fields:
-          - name: title
-            label: "Skill Category Group Title"
-            type: string
+          - { name: title, label: "Category Title", type: string }
           - name: pills
-            label: "Individual Skill Pills"
+            label: "Skills List"
             type: list
-            field: { type: string, label: "Skill tag" }
+            field: { type: string, label: "Skill Tag" }
