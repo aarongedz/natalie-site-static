@@ -10,14 +10,10 @@ content:
         # The primary key must exist in your YAML file
         view: { primary: role }
         fields:
-          - name: items
-            label: Experience Items
-            type: list
-            fields:
-              - { name: role, label: "Role", type: string }
+              - { name: role, label: "Job Title", type: string }
               - { name: company, label: "Company", type: string }
-              - { name: timeline, label: "Timeline", type: string }
+              - { name: timeline, label: "Dates", type: string }
               - name: bullets
-                label: Bullets
-                type: list
-                field: { type: string, label: "Bullet" }
+                label: "Bullets"
+                type: string
+                list: true # This makes bullets a nested list of strings
