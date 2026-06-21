@@ -1,8 +1,8 @@
 media:
   - name: assets
     label: "Assets"
-    input: "assets/uploads"
-    output: "/assets/uploads"
+    input: "assets"
+    output: "/assets"
     categories: [image, document]
 
 content:
