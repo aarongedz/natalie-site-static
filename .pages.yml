@@ -68,6 +68,7 @@ content:
             type: object
             list: true
             fields:
+              - { name: tag, label: "Tag", type: string }
               - { name: title, label: "Title", type: string }
               - { name: desc, label: "Description", type: text }
               # By using type: file, the CMS triggers the Asset Folder browser
