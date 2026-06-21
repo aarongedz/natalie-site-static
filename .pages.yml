@@ -7,9 +7,7 @@ content:
         label: Experience
         type: file
         path: _data/experience.yml
-        # This fixes the [object Object] error:
-        view:
-          primary: role
+        view: { primary: role }
         fields:
           - name: items
             label: Experience Items
@@ -23,3 +21,20 @@ content:
                 label: "Bullets"
                 type: string
                 list: true
+
+      - name: education
+        label: Education
+        type: file
+        path: _data/education.yml
+        view: { primary: degree } # This fixes the [object Object] issue for education
+        fields:
+          - name: items
+            label: Education Items
+            type: object
+            list: true
+            fields:
+              - { name: degree, label: "Degree", type: string }
+              - { name: school, label: "School", type: string }
+              - { name: date, label: "Date", type: string }
+              - { name: focus, label: "Focus", type: string }
+              - { name: description, label: "Description", type: text }
