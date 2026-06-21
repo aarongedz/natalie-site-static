@@ -1,15 +1,73 @@
-media:
-  input: assets
-  output: /assets
+backend:
+  name: github
+  repo: your-username/your-repo-name # Replace with your GitHub username and repo name
+  branch: main
 
-content:
-  - name: homepage
-    label: "Edit Portfolio Website"
-    type: file
-    path: "index.html"
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "profile"
+    label: "Profile Settings"
+    delete: false # Prevents accidental deletion of global settings
+    files:
+      - file: "data/profile.json" # Best paired with a static data file or handled directly in your build step
+        label: "General Profile & Contact Info"
+        name: "general"
+        fields:
+          - { label: "Full Name", name: "name", widget: "string" }
+          - { label: "Title Tag", name: "title_tag", widget: "string" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+
+  - name: "experience"
+    label: "Professional Experience"
+    folder: "data/experience" # Creates markdown or JSON files per role
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
     fields:
-      - name: body
-        label: "HTML Source Code Editor"
-        type: code
-        options:
-          format: html
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Company Name", name: "company", widget: "string" }
+      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., July 2016 - Present" }
+      - { label: "Order", name: "order", widget: "number", value_type: "int", hint: "Higher number shows first" }
+      - label: "Responsibilities"
+        name: "bullet_points"
+        widget: "list"
+        summary: "{{fields.point}}"
+        field: { label: "Bullet Point", name: "point", widget: "string" }
+
+  - name: "education"
+    label: "Education Tracks"
+    folder: "data/education"
+    create: true
+    fields:
+      - { label: "Degree/Program Type", name: "degree", widget: "string", hint: "e.g., Graduate Program" }
+      - { label: "Institution", name: "institution", widget: "string" }
+      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., Expected May 2026" }
+      - { label: "Specialization Title", name: "specialization", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Order", name: "order", widget: "number", value_type: "int" }
+
+  - name: "academic_work"
+    label: "Academic Works Dashboard"
+    folder: "data/portfolio"
+    create: true
+    fields:
+      - { label: "Course / Topic Tag", name: "tag", widget: "string", hint: "e.g., UCF / AI Automation" }
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Project Description", name: "description", widget: "text" }
+      - { label: "PDF File Link", name: "file_link", widget: "file", required: false, hint: "Upload or select your project PDF" }
+      - { label: "Link Text", name: "link_text", widget: "string", default: "View Project", hint: "e.g., View Research Proposal" }
+
+  - name: "competencies"
+    label: "Core Competencies"
+    folder: "data/competencies"
+    create: true
+    fields:
+      - { label: "Skill Category", name: "category", widget: "string", hint: "e.g., Operational Excellence" }
+      - { label: "Order", name: "order", widget: "number", value_type: "int" }
+      - label: "Skills (Pills)"
+        name: "pills"
+        widget: "list"
+        field: { label: "Skill Name", name: "skill_name", widget: "string" }
