@@ -1,23 +1,12 @@
 items:
-  - role: Park Entertainment Operations
-    company: Walt Disney World
-    timeline: July 2016 - Present
-    bullets:
-      - Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences.
-      - Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths.
-  - role: Sales Operations Associate
-    company: Disney Springs
-    timeline: November 2020 - September 2021
-    bullets:
-      - Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers.
-      - Supervised precise inventory organization, back-end spatial layout tracking, and procedural standard documentation to support high-traffic logistics and 10+ exclusive product release events.
-  - role: International Entertainment Operations Contract
-    company: Hong Kong Disneyland • Hong Kong, China
-    timeline: April 2018 - November 2018
-    bullets:
-      - Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules, strict crowd safety capacities, and operational timeline matrices in a multicultural park environment welcoming 15,000+ daily visitors.
-  - role: International Entertainment Operations Contract
-    company: Tokyo Disney Resort • Tokyo, Japan
-    timeline: February 2015 - April 2016
-    bullets:
-      - Ensured precise operational timeline deployment across major seasonal and community relations programs, maintaining exceptional execution standards within a rigorous compliance framework.
+  - school: University of Central Florida
+    degree: Graduate Program in Digital Humanities in the Age of AI
+    timeline: 2026 - Expected May 2026
+    details:
+      - "Focus: AI Automation and Data Synthesis"
+  - school: Wilmington University
+    degree: Bachelor of Science in Business Management
+    timeline: 2023 - 2026
+    details:
+      - "Concentration: Human Resource Management"
+      - "Academic Projects: Urban Agriculture Energy Grids, Organizational Culture Inventories, and Strategic Business Matrix Design."
