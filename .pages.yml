@@ -1,57 +1,74 @@
-name: "Natalie Romeo"
-tagline: "Strategic Leadership"
-phone: "732-882-9688"
-email: "natalieromeo20@gmail.com"
-linkedin: "https://www.linkedin.com/in/natalieeromeo/"
+# .pages.yml
+content:
+  - name: profile
+    label: "1. Profile Info"
+    type: file
+    path: "_data/profile.yml"
+    fields:
+      - { name: name, label: "Profile Name", type: string }
+      - { name: tagline, label: "Professional Tagline", type: string }
+      - { name: phone, label: "Phone Number", type: string }
+      - { name: email, label: "Email Address", type: string }
+      - { name: linkedin, label: "LinkedIn URL", type: string }
 
-items:
-  - role: "Park Entertainment Operations"
-    company: "Walt Disney World"
-    timeline: "July 2016 - Present"
-    bullets:
-      - "Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences."
-      - "Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths."
-  - role: "Sales Operations Associate"
-    company: "Disney Springs"
-    timeline: "November 2020 - September 2021"
-    bullets:
-      - "Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers."
-  - role: "International Entertainment Operations Contract"
-    company: "Hong Kong Disneyland • Hong Kong, China"
-    timeline: "April 2018 - November 2018"
-    bullets:
-      - "Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules."
-  - role: "International Entertainment Operations Contract"
-    company: "Tokyo Disney Resort • Tokyo, Japan"
-    timeline: "February 2015 - April 2016"
-    bullets:
-      - "Ensured precise operational timeline deployment across major seasonal and community relations programs."
+  - name: experience
+    label: "2. Experience"
+    type: file
+    path: "_data/experience.yml"
+    fields:
+      - name: items
+        label: "Experience Items"
+        type: list
+        fields:
+          - { name: role, label: "Job Title", type: string }
+          - { name: company, label: "Company / Location", type: string }
+          - { name: timeline, label: "Dates Active", type: string }
+          - name: bullets
+            label: "Accomplishment Bullets"
+            type: list
+            field: { type: string, label: "Bullet Line" }
 
-items:
-  - degree: "Graduate Program"
-    school: "University of Central Florida"
-    date: "Expected May 2026"
-    focus: "Digital Humanities in the Age of AI"
-    description: "Advanced curriculum focusing on text discovery, pattern modeling, and data analytics tools designed to maximize project workflow efficiency."
-  - degree: "Bachelor of Science"
-    school: "Wilmington University"
-    date: "Graduated December 2023"
-    focus: "Organizational Dynamics"
-    description: "Academic specialization tracking organizational structures, matrix hierarchy alignments, operational resource tracking, and strategic business data models."
+  - name: education
+    label: "3. Education"
+    type: file
+    path: "_data/education.yml"
+    fields:
+      - name: items
+        label: "Education Tracks"
+        type: list
+        fields:
+          - { name: degree, label: "Degree / Certificate", type: string }
+          - { name: school, label: "Institution", type: string }
+          - { name: date, label: "Graduation Date", type: string }
+          - { name: focus, label: "Specialization Focus", type: string }
+          - { name: description, label: "Overview", type: text }
 
-items:
-  - tag: "UCF / AI Automation"
-    title: "Course Design Plan Framework"
-    desc: "Constructed an operational project framework applying automated data and text analysis tools."
-    link: ""
-    link_text: ""
-  - tag: "WilmU / Operational Strategy"
-    title: "Bella's Bakery Matrix Study"
-    desc: "Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways."
-    link: "assets/Business-Report-Project.pdf"
-    link_text: "View Business Report"
-items:
-  - title: "Event & Production Support"
-    pills: ["Logistics Coordination", "Show Element Integration", "Itinerary & Schedule Mapping"]
-  - title: "Operational Excellence"
-    pills: ["Cross-Functional Team Leadership", "High-Traffic Crowd Control", "Dynamic Problem Solving"]
+  - name: academic
+    label: "4. Academic Work"
+    type: file
+    path: "_data/academic.yml"
+    fields:
+      - name: items
+        label: "Academic Portfolio Dashboard"
+        type: list
+        fields:
+          - { name: tag, label: "Card Category Tag", type: string }
+          - { name: title, label: "Project Title", type: string }
+          - { name: desc, label: "Project Description", type: text }
+          - { name: link, label: "Asset File Path", type: string }
+          - { name: link_text, label: "Button Display Text", type: string }
+
+  - name: competencies
+    label: "5. Competencies"
+    type: file
+    path: "_data/competencies.yml"
+    fields:
+      - name: items
+        label: "Core Competency Domains"
+        type: list
+        fields:
+          - { name: title, label: "Domain Category Title", type: string }
+          - name: pills
+            label: "Competency Pills / Tags"
+            type: list
+            field: { type: string, label: "Skill Tag" }
