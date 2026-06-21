@@ -3,112 +3,13 @@ media:
   output: /assets
 
 content:
-  - name: landing_page
-    label: "Portfolio Content"
+  - name: homepage
+    label: "Edit Portfolio Website"
     type: file
     path: "index.html"
-    format: html
     fields:
-
-      # --- SIDEBAR & CONTACT ---
-      - name: name
-        label: "Full Name"
-        type: string
-        selector: "#profile-name"
-      - name: title_tag
-        label: "Title Tag"
-        type: string
-        selector: "#profile-title"
-      - name: phone
-        label: "Phone Number"
-        type: string
-        selector: "#contact-phone"
-      - name: email
-        label: "Email Address"
-        type: string
-        selector: "#contact-email"
-        html: false # Changes the text value, leaves the mailto: href intact or lets you edit it cleanly
-      - name: linkedin
-        label: "LinkedIn URL"
-        type: string
-        selector: "#contact-linkedin"
-        attribute: "href" # Directly updates the link target destination
-
-      # --- REPEATABLE EXPERIENCE CARDS ---
-      - name: experiences
-        label: "Professional Experiences"
-        type: list
-        selector: "#experience-list" # Loops through elements inside this parent wrapper
-        item_selector: ".happy-card" # Identifies individual card items
-        fields:
-          - name: title
-            label: "Job Title"
-            type: string
-            selector: ".card-meta h3"
-          - name: company
-            label: "Company"
-            type: string
-            selector: ".card-meta .company"
-          - name: dates
-            label: "Dates (Badge)"
-            type: string
-            selector: ".card-badge"
-          - name: bullet_points
-            label: "Responsibilities"
-            type: list
-            selector: ".card-body-text ul"
-            item_selector: "li"
-            fields:
-              - name: point
-                label: "Bullet Point"
-                type: string
-
-      # --- REPEATABLE ACADEMIC WORKS ---
-      - name: academic_works
-        label: "Academic Works Dashboard"
-        type: list
-        selector: ".grid-layout" # Uses your layout grid container
-        item_selector: ".artifact-card"
-        fields:
-          - name: tag
-            label: "Course / Topic Tag"
-            type: string
-            selector: ".artifact-tag"
-          - name: title
-            label: "Project Title"
-            type: string
-            selector: "h4"
-          - name: description
-            label: "Project Description"
-            type: text
-            selector: "p"
-          - name: file_link
-            label: "PDF File Upload"
-            type: file
-            selector: ".action-link"
-            attribute: "href"
-          - name: link_text
-            label: "Link Action Button Text"
-            type: string
-            selector: ".action-link"
-
-      # --- REPEATABLE SKILL BOXES ---
-      - name: competencies
-        label: "Core Competencies"
-        type: list
-        selector: ".skills-pane-grid"
-        item_selector: ".skills-pane-box"
-        fields:
-          - name: category
-            label: "Skill Category"
-            type: string
-            selector: "h4"
-          - name: pills
-            label: "Skills (Pills)"
-            type: list
-            selector: ".pill-cluster"
-            item_selector: ".pill"
-            fields:
-              - name: skill_name
-                label: "Skill Name"
-                type: string
+      - name: body
+        label: "HTML Source Code Editor"
+        type: code
+        options:
+          format: html
