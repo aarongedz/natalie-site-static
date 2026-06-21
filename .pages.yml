@@ -1,74 +1,54 @@
-# .pages.yml
 content:
-  - name: profile
-    label: "1. Profile Info"
-    type: file
-    path: "_data/profile.yml"
-    fields:
-      - { name: name, label: "Profile Name", type: string }
-      - { name: tagline, label: "Professional Tagline", type: string }
-      - { name: phone, label: "Phone Number", type: string }
-      - { name: email, label: "Email Address", type: string }
-      - { name: linkedin, label: "LinkedIn URL", type: string }
-
-  - name: experience
-    label: "2. Experience"
-    type: file
-    path: "_data/experience.yml"
-    fields:
-      - name: items
-        label: "Experience Items"
-        type: list
+  - name: portfolio
+    label: Portfolio Data
+    type: group
+    items:
+      - name: profile
+        label: Profile Info
+        type: file
+        path: _data/profile.yml
         fields:
-          - { name: role, label: "Job Title", type: string }
-          - { name: company, label: "Company / Location", type: string }
-          - { name: timeline, label: "Dates Active", type: string }
-          - name: bullets
-            label: "Accomplishment Bullets"
-            type: list
-            field: { type: string, label: "Bullet Line" }
+          - name: data # We wrap these in a 'data' object to match the HTML
+            type: object
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: tagline, label: "Tagline", type: string }
+              - { name: phone, label: "Phone", type: string }
+              - { name: email, label: "Email", type: string }
+              - { name: linkedin, label: "LinkedIn URL", type: string }
 
-  - name: education
-    label: "3. Education"
-    type: file
-    path: "_data/education.yml"
-    fields:
-      - name: items
-        label: "Education Tracks"
-        type: list
+      - name: experience
+        label: Experience
+        type: file
+        path: _data/experience.yml
+        view: { primary: role }
         fields:
-          - { name: degree, label: "Degree / Certificate", type: string }
-          - { name: school, label: "Institution", type: string }
-          - { name: date, label: "Graduation Date", type: string }
-          - { name: focus, label: "Specialization Focus", type: string }
-          - { name: description, label: "Overview", type: text }
+          - name: items
+            label: Experience Items
+            type: object
+            list: true
+            fields:
+              - { name: role, label: "Role", type: string }
+              - { name: company, label: "Company", type: string }
+              - { name: timeline, label: "Timeline", type: string }
+              - name: bullets
+                label: "Bullets"
+                type: string
+                list: true
 
-  - name: academic
-    label: "4. Academic Work"
-    type: file
-    path: "_data/academic.yml"
-    fields:
-      - name: items
-        label: "Academic Portfolio Dashboard"
-        type: list
+      - name: education
+        label: Education
+        type: file
+        path: _data/education.yml
+        view: { primary: degree }
         fields:
-          - { name: tag, label: "Card Category Tag", type: string }
-          - { name: title, label: "Project Title", type: string }
-          - { name: desc, label: "Project Description", type: text }
-          - { name: link, label: "Asset File Path", type: string }
-          - { name: link_text, label: "Button Display Text", type: string }
-
-  - name: competencies
-    label: "5. Competencies"
-    type: file
-    path: "_data/competencies.yml"
-    fields:
-      - name: items
-        label: "Core Competency Domains"
-        type: list
-        fields:
-          - { name: title, label: "Domain Category Title", type: string }
-          - name: pills
-            label: "Competency Pills / Tags"
-            type: list
-            field: { type: string, label: "Skill Tag" }
+          - name: items
+            label: Education Items
+            type: object
+            list: true
+            fields:
+              - { name: degree, label: "Degree", type: string }
+              - { name: school, label: "School", type: string }
+              - { name: date, label: "Date", type: string }
+              - { name: focus, label: "Focus", type: string }
+              - { name: description, label: "Description", type: text }
