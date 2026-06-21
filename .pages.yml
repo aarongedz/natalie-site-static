@@ -1,24 +1,24 @@
-content:
-  - name: portfolio_data
-    label: Portfolio Data
-    type: group
-    items:
-      - name: experience
-        label: Experience
-        type: file
-        path: _data/experience.yml
-        fields:
-          - name: items
-            label: Experience Items
-            type: list
-            # This 'view' tells the CMS which field to use as the title
-            view:
-              primary: role
-            fields:
-              - { name: role, label: "Role", type: string }
-              - { name: company, label: "Company", type: string }
-              - { name: timeline, label: "Timeline", type: string }
-              - name: bullets
-                label: Bullets
-                type: list
-                field: { type: string, label: "Bullet" }
+# Pages CMS Configuration
+collections:
+  - label: "Posts" # Change this to match your content type
+    name: "posts"
+    folder: "content/posts" # UPDATE THIS: path to your markdown files
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        required: true
+      # Add more fields based on your existing frontmatter
+      # Example:
+      # - label: "Image"
+      #   name: "thumbnail"
+      #   widget: "image"
