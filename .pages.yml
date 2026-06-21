@@ -1,73 +1,90 @@
-backend:
-  name: github
-  repo: your-username/your-repo-name # Replace with your GitHub username and repo name
-  branch: main
+# 1. Define where uploaded media files go
+media:
+  input: assets
+  output: /assets
 
-media_folder: "assets"
-public_folder: "assets"
+# 2. Structure your site segments for editing
+content:
+  # --- GLOBAL INFORMATION (Sidebar Contact & Header) ---
+  - name: profile
+    label: "Profile & Contact Info"
+    type: file
+    path: "data/profile.json" # Pages CMS will write simple JSON here
+    format: json
+    fields:
+      - { name: name, label: "Full Name", type: string }
+      - { name: title_tag, label: "Title Tag", type: string }
+      - { name: phone, label: "Phone Number", type: string }
+      - { name: email, label: "Email Address", type: string }
+      - { name: linkedin, label: "LinkedIn URL", type: string }
 
-collections:
-  - name: "profile"
-    label: "Profile Settings"
-    delete: false # Prevents accidental deletion of global settings
-    files:
-      - file: "data/profile.json" # Best paired with a static data file or handled directly in your build step
-        label: "General Profile & Contact Info"
-        name: "general"
-        fields:
-          - { label: "Full Name", name: "name", widget: "string" }
-          - { label: "Title Tag", name: "title_tag", widget: "string" }
-          - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
-
-  - name: "experience"
+  # --- EXPERIENCES TAB ---
+  - name: experience
     label: "Professional Experience"
-    folder: "data/experience" # Creates markdown or JSON files per role
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
+    type: collection
+    path: "data/experience" # Creates individual files per job entry
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
     fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Company Name", name: "company", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., July 2016 - Present" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int", hint: "Higher number shows first" }
-      - label: "Responsibilities"
-        name: "bullet_points"
-        widget: "list"
-        summary: "{{fields.point}}"
-        field: { label: "Bullet Point", name: "point", widget: "string" }
+      - { name: title, label: "Job Title", type: string }
+      - { name: company, label: "Company Name", type: string }
+      - { name: date_badge, label: "Dates (Badge)", type: string, description: "e.g., July 2016 - Present" }
+      - { name: order, label: "Sort Order", type: number, description: "Higher numbers sort higher" }
+      - name: bullet_points
+        label: "Responsibilities"
+        type: list
+        fields:
+          - { name: point, label: "Bullet Point Text", type: string }
 
-  - name: "education"
+  # --- EDUCATION TAB ---
+  - name: education
     label: "Education Tracks"
-    folder: "data/education"
-    create: true
+    type: collection
+    path: "data/education"
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: degree
     fields:
-      - { label: "Degree/Program Type", name: "degree", widget: "string", hint: "e.g., Graduate Program" }
-      - { label: "Institution", name: "institution", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., Expected May 2026" }
-      - { label: "Specialization Title", name: "specialization", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
+      - { name: degree, label: "Degree/Program Type", type: string, description: "e.g., Graduate Program" }
+      - { name: institution, label: "Institution", type: string }
+      - { name: date_badge, label: "Dates (Badge)", type: string }
+      - { name: specialization, label: "Specialization Title", type: string }
+      - { name: description, label: "Description", type: text }
+      - { name: order, label: "Sort Order", type: number }
 
-  - name: "academic_work"
+  # --- ACADEMIC WORKS TAB ---
+  - name: academic_work
     label: "Academic Works Dashboard"
-    folder: "data/portfolio"
-    create: true
+    type: collection
+    path: "data/portfolio"
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: title
     fields:
-      - { label: "Course / Topic Tag", name: "tag", widget: "string", hint: "e.g., UCF / AI Automation" }
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Project Description", name: "description", widget: "text" }
-      - { label: "PDF File Link", name: "file_link", widget: "file", required: false, hint: "Upload or select your project PDF" }
-      - { label: "Link Text", name: "link_text", widget: "string", default: "View Project", hint: "e.g., View Research Proposal" }
+      - { name: tag, label: "Course / Topic Tag", type: string, description: "e.g., UCF / AI Automation" }
+      - { name: title, label: "Project Title", type: string }
+      - { name: description, label: "Project Description", type: text }
+      - { name: file_link, label: "PDF File Upload", type: file, required: false }
+      - { name: link_text, label: "Link Action Button Text", type: string, description: "e.g., View Research Proposal" }
 
-  - name: "competencies"
+  # --- COMPETENCiES (SKILLS) TAB ---
+  - name: competencies
     label: "Core Competencies"
-    folder: "data/competencies"
-    create: true
+    type: collection
+    path: "data/competencies"
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: category
     fields:
-      - { label: "Skill Category", name: "category", widget: "string", hint: "e.g., Operational Excellence" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
-      - label: "Skills (Pills)"
-        name: "pills"
-        widget: "list"
-        field: { label: "Skill Name", name: "skill_name", widget: "string" }
+      - { name: category, label: "Skill Category", type: string, description: "e.g., Operational Excellence" }
+      - { name: order, label: "Sort Order", type: number }
+      - name: pills
+        label: "Skills (Pills)"
+        type: list
+        fields:
+          - { name: skill_name, label: "Skill Name", type: string }
