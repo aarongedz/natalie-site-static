@@ -71,7 +71,8 @@ content:
               - { name: tag, label: "Tag", type: string }
               - { name: title, label: "Title", type: string }
               - { name: desc, label: "Description", type: text }
-              - { name: link, label: "Link", type: string }
+              # By using type: file, the CMS triggers the Asset Folder browser
+              - { name: link, label: "Select Project File", type: file }
               - { name: link_text, label: "Link Text", type: string }
 
       - name: competencies
