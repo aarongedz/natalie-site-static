@@ -1,50 +1,85 @@
-# .pages.yml at your repository root
-
 media:
-  path: public/images # Or assets/images, where your pictures go
+  path: assets/images
 
 content:
-  # --- EXAMPLE 1: A SINGLE EXPLICIT FILE (e.g., your home page or an academic profile card) ---
-  - name: homepage
-    label: Homepage Content
+  - name: portfolio_content
+    label: "Portfolio Tabs Editor"
     type: file
-    path: index.md # The exact path to the file in your repo
-    format: yaml-frontmatter
+    path: "data.json"   # This is the file the CMS will write to
+    format: json
     fields:
-      - name: title
-        label: Page Title
+      # --- SIDE NAV / MAIN META ---
+      - name: name
+        label: "Profile Name"
         type: string
-        required: true
-      - name: description
-        label: Meta Description
+      - name: tagline
+        label: "Professional Tagline"
         type: string
-      - name: body
-        label: Main Body Content
-        type: rich-text # This gives you the Notion-like visual editor
 
-  # --- EXAMPLE 2: A COLLECTION OF SIMILAR FILES (e.g., projects, posts, or slices) ---
-  - name: projects
-    label: My Projects
-    type: collection
-    path: content/projects # The folder where markdown files are stored
-    format: yaml-frontmatter
-    filename: "{primary}.md" # Automatically names the file based on the 'primary' view key below
-    view:
-      fields: [title, date]
-      primary: title
-      sort: [date]
-    fields:
-      - name: title
-        label: Project Name
-        type: string
-        required: true
-      - name: date
-        label: Date Published
-        type: date
-      - name: body
-        label: Project Details
-        type: rich-text
+      # --- EXPERIENCE TAB ---
+      - name: experience_tab
+        label: "Experience Content"
+        type: list
+        fields:
+          - name: role
+            label: "Job Title"
+            type: string
+          - name: company
+            label: "Company Name"
+            type: string
+          - name: timeline
+            label: "Dates Worked"
+            type: string
+          - name: bullet_points
+            label: "Bullet Points"
+            type: list
+            field: { type: string, label: "Bullet" }
 
-settings:
-  content:
-    merge: true # Keeps outside key properties from getting deleted when saving
+      # --- EDUCATION TAB ---
+      - name: education_tab
+        label: "Education Content"
+        type: list
+        fields:
+          - name: degree
+            label: "Degree/Certificate"
+            type: string
+          - name: school
+            label: "School/Institution"
+            type: string
+          - name: date
+            label: "Graduation Date"
+            type: string
+          - name: core_focus
+            label: "Focus/Major"
+            type: string
+          - name: description
+            label: "Short Description"
+            type: text
+
+      # --- ACADEMIC WORK TAB ---
+      - name: academic_tab
+        label: "Academic Portfolio"
+        type: list
+        fields:
+          - name: tag
+            label: "Category Tag (e.g. Urban Design)"
+            type: string
+          - name: title
+            label: "Project Title"
+            type: string
+          - name: description
+            label: "Project Details"
+            type: text
+
+      # --- COMPETENCYS/SKILLS TAB ---
+      - name: skills_tab
+        label: "Skills & Clusters"
+        type: list
+        fields:
+          - name: category_title
+            label: "Group Title (e.g. Front-End)"
+            type: string
+          - name: skills_pills
+            label: "Individual Skills"
+            type: list
+            field: { type: string, label: "Skill Tag" }
