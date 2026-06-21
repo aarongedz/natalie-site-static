@@ -1,4 +1,3 @@
-# Root configuration for Pages CMS
 content:
   - name: settings
     label: "Site Settings"
@@ -18,49 +17,17 @@ content:
     label: "Portfolio Data"
     type: group
     items:
-      - name: experience
+      - name: experiences
         label: "Experience"
-        type: file
-        path: "_data/experience.yml"
+        type: collection
+        path: "_data/experiences"
+        format: yaml
+        summary: "{role} — {company}"
         fields:
-          - name: items
-            label: "Experience Items"
+          - { name: role, label: "Role", type: string }
+          - { name: company, label: "Company", type: string }
+          - { name: timeline, label: "Timeline", type: string }
+          - name: bullets
+            label: "Bullets"
             type: list
-            # Using the summary property for readability instead of [object Object]
-            summary: "{role} at {company}"
-            fields:
-              - { name: role, label: "Role", type: string }
-              - { name: company, label: "Company", type: string }
-              - { name: timeline, label: "Timeline", type: string }
-              - name: bullets
-                label: "Bullets"
-                type: list
-                field: { type: string, label: "Bullet" }
-
-      - name: education
-        label: "Education"
-        type: file
-        path: "_data/education.yml"
-        fields:
-          - name: items
-            label: "Education Tracks"
-            type: list
-            summary: "{degree} - {school}"
-            fields:
-              - { name: degree, label: "Degree", type: string }
-              - { name: school, label: "Institution", type: string }
-              - { name: date, label: "Date", type: string }
-
-      - name: academic
-        label: "Academic Work"
-        type: file
-        path: "_data/academic.yml"
-        fields:
-          - name: items
-            label: "Projects"
-            type: list
-            summary: "{title}"
-            fields:
-              - { name: title, label: "Title", type: string }
-              - { name: tag, label: "Category", type: string }
-              - { name: desc, label: "Description", type: text }
+            field: { type: string, label: "Bullet" }
