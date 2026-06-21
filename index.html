@@ -1,107 +1,12 @@
 ---
-name: "Natalie Romeo"
-tagline: "Strategic Leadership"
-phone: "732-882-9688"
-email: "natalieromeo20@gmail.com"
-linkedin: "https://www.linkedin.com/in/natalieeromeo/"
-
-experience_tab:
-  - role: "Park Entertainment Operations"
-    company: "Walt Disney World"
-    timeline: "July 2016 - Present"
-    bullets:
-      - "Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences."
-      - "Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths."
-  - role: "Sales Operations Associate"
-    company: "Disney Springs"
-    timeline: "November 2020 - September 2021"
-    bullets:
-      - "Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers."
-      - "Supervised precise inventory organization, back-end spatial layout tracking, and procedural standard documentation to support high-traffic logistics and 10+ exclusive product release events."
-  - role: "International Entertainment Operations Contract"
-    company: "Hong Kong Disneyland • Hong Kong, China"
-    timeline: "April 2018 - November 2018"
-    bullets:
-      - "Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules, strict crowd safety capacities, and operational timeline matrices in a multicultural park environment welcoming 15,000+ daily visitors."
-  - role: "International Entertainment Operations Contract"
-    company: "Tokyo Disney Resort • Tokyo, Japan"
-    timeline: "February 2015 - April 2016"
-    bullets:
-      - "Ensured precise operational timeline deployment across major seasonal and community relations programs, maintaining exceptional execution standards within a rigorous compliance framework."
-
-education_tab:
-  - degree: "Graduate Program"
-    school: "University of Central Florida"
-    date: "Expected May 2026"
-    focus: "Digital Humanities in the Age of AI"
-    description: "Advanced curriculum focusing on text discovery, pattern modeling, and data analytics tools designed to maximize project workflow efficiency."
-  - degree: "Bachelor of Science"
-    school: "Wilmington University"
-    date: "Graduated December 2023"
-    focus: "Organizational Dynamics"
-    description: "Academic specialization tracking organizational structures, matrix hierarchy alignments, operational resource tracking, and strategic business data models."
-
-academic_tab:
-  - tag: "UCF / AI Automation"
-    title: "Course Design Plan Framework"
-    desc: "Constructed an operational project framework applying automated data and text analysis tools. Utilized Claude and NotebookLM platforms to interpret patterns, saving 50% in research and development timelines."
-    link: ""
-    link_text: ""
-  - tag: "WilmU / Operational Strategy"
-    title: "Bella's Bakery Matrix Study"
-    desc: "Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways, information pipelines, and communications hierarchies to bypass operational deficiencies."
-    link: "assets/Business-Report-Project.pdf"
-    link_text: "View Business Report"
-  - tag: "WilmU / Sustainability"
-    title: "Green City Design Proposal"
-    desc: "Formulated an urban environmental framework plan for Downtown Winter Garden incorporating urban agriculture community spaces, high/low pressure sodium energy savings grids, and pervious concrete street layouts."
-    link: "assets/Green-City-Design.pdf"
-    link_text: "View Sustainability Study"
-  - tag: "WilmU / Market Research"
-    title: "Disney Streaming Success"
-    desc: "Conducted a mixed-methods research proposal evaluating the correlation between public opinion on cultural representation and subscriber retention metrics on Disney+. Developed a mixed methodology using demographic Likert-scale surveys alongside revenue data to analyze institutional brand perception versus active consumer usage patterns."
-    link: "assets/Final-Research-Proposal.pdf"
-    link_text: "View Research Proposal"
-  - tag: "WilmU / Culture Analysis"
-    title: "The Walt Disney Culture Inventory"
-    desc: "Executed an intensive seven-week organizational assessment mapping cast member onboarding traditions, corporate core values, inclusion strategies, and cultural frameworks against day-to-day service execution models."
-    link: "assets/Cultural-Analysis-Report.pdf"
-    link_text: "View Culture Analysis"
-  - tag: "WilmU / Script Architecture"
-    title: "Comic Script: \"Superpowers\""
-    desc: "Created a comprehensive comic panel script architecture for LIT313 tracking structured scene pacing grids, emotional expressions, character narrative development fields, and mindfulness storytelling frameworks."
-    link: "assets/Comic-Story.pdf"
-    link_text: "View Script Architecture"
-  - tag: "WilmU / Qualitative Analysis"
-    title: "Breaking the Glass Ceiling Study"
-    desc: "Compiled an academic research synthesis for ENG310 analyzing organizational bias mitigation infrastructure, workplace equity barriers, and corporate sponsorship programs for aspiring women entrepreneurs."
-    link: "assets/ENG310-Breaking-the-Glass-Ceiling.pdf"
-    link_text: "View Qualitative Study"
-  - tag: "WilmU / Historical Synthesis"
-    title: "The Significance of Ballroom Culture Today"
-    desc: "Authored a comprehensive historical research report analyzing the multi-generational impact of Ballroom culture, kinship structures, and safe space refuges within modern multiracial communities."
-    link: "assets/the-importance-of-ballroom-culture-today.pdf"
-    link_text: "View Historical Paper"
-  - tag: "WilmU / Fiction Writing"
-    title: "Harmony: A Cultural History Narrative"
-    desc: "Wrote an evocative literary piece tracking traditional Confucian moral principles and historical ideologies against a changing industrial backdrop during mid-20th century China."
-    link: "assets/Harmony.pdf"
-    link_text: "View Narrative Paper"
-
-skills_tab:
-  - title: "Event & Production Support"
-    pills: ["Logistics Coordination", "Show Element Integration", "Itinerary & Schedule Mapping", "Budget Tracking Support", "Media Activation Support", "Promotional Sign-offs"]
-  - title: "Operational Excellence"
-    pills: ["Cross-Functional Team Leadership", "High-Traffic Crowd Control (15,000+)", "Dynamic Problem Solving", "Multicultural Communication", "Inventory & Spatial Optimization"]
-  - title: "Systems & AI Arrays"
-    pills: ["Claude Code / Automation Studio", "NotebookLM / Data Synthesis", "Microsoft Visio / Process Mapping", "Adobe Photoshop Layout Design", "HTML5 & CSS3 Responsive Interfaces", "Microsoft Office (Excel PivotTables, Word, PPT)"]
+# Empty frontmatter block tells GitHub Pages to compile Jekyll Liquid tags
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.name }} | Portfolio</title>
+    <title>{{ site.data.profile.name }} | Portfolio</title>
     <style>
         :root {
             --bg-main: #fcf8f9;
@@ -245,8 +150,8 @@ skills_tab:
     <aside class="sidebar">
         <div class="top-menu-group">
             <div class="profile-block">
-                <h1>{{ page.name }}</h1>
-                <span class="title-tag">{{ page.tagline }}</span>
+                <h1>{{ site.data.profile.name }}</h1>
+                <span class="title-tag">{{ site.data.profile.tagline }}</span>
             </div>
 
             <nav class="nav-tabs">
@@ -260,15 +165,15 @@ skills_tab:
         <div class="contact-info">
             <div class="contact-line">
                 <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                <span>{{ page.phone }}</span>
+                <span>{{ site.data.profile.phone }}</span>
             </div>
             <div class="contact-line">
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                <a href="mailto:{{ page.email }}">{{ page.email }}</a>
+                <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a>
             </div>
             <div class="contact-line">
                 <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                <a href="{{ page.linkedin }}" target="_blank">LinkedIn Profile</a>
+                <a href="{{ site.data.profile.linkedin }}" target="_blank">LinkedIn Profile</a>
             </div>
         </div>
     </aside>
@@ -279,7 +184,7 @@ skills_tab:
         <div id="pane-exp" class="tab-content active">
             <h2 class="pane-title">Professional <span>Experience</span></h2>
             
-            {% for job in page.experience_tab %}
+            {% for job in site.data.experience.items %}
             <div class="happy-card">
                 <div class="card-header-flex">
                     <div class="card-meta">
@@ -303,7 +208,7 @@ skills_tab:
         <div id="pane-edu" class="tab-content">
             <h2 class="pane-title">Education <span>Tracks</span></h2>
             
-            {% for edu in page.education_tab %}
+            {% for edu in site.data.education.items %}
             <div class="happy-card">
                 <div class="card-header-flex">
                     <div class="card-meta">
@@ -325,7 +230,7 @@ skills_tab:
             <h2 class="pane-title">Academic <span>Works Dashboard</span></h2>
             
             <div class="grid-layout">
-                {% for project in page.academic_tab %}
+                {% for project in site.data.academic.items %}
                 <div class="artifact-card">
                     <div>
                         <span class="artifact-tag">{{ project.tag }}</span>
@@ -345,7 +250,7 @@ skills_tab:
             <h2 class="pane-title">Core <span>Competencies</span></h2>
             
             <div class="skills-pane-grid">
-                {% for skillGroup in page.skills_tab %}
+                {% for skillGroup in site.data.competencies.items %}
                 <div class="skills-pane-box">
                     <h4>{{ skillGroup.title }}</h4>
                     <div class="pill-cluster">
