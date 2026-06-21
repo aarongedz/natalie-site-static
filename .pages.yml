@@ -1,73 +1,85 @@
-backend:
-  name: github
-  repo: your-username/your-repo-name # Replace with your GitHub username and repo name
-  branch: main
+media:
+  path: assets/images
 
-media_folder: "assets"
-public_folder: "assets"
+content:
+  - name: portfolio_content
+    label: "Portfolio Tabs Editor"
+    type: file
+    path: "data.json"   # This is the file the CMS will write to
+    format: json
+    fields:
+      # --- SIDE NAV / MAIN META ---
+      - name: name
+        label: "Profile Name"
+        type: string
+      - name: tagline
+        label: "Professional Tagline"
+        type: string
 
-collections:
-  - name: "profile"
-    label: "Profile Settings"
-    delete: false # Prevents accidental deletion of global settings
-    files:
-      - file: "data/profile.json" # Best paired with a static data file or handled directly in your build step
-        label: "General Profile & Contact Info"
-        name: "general"
+      # --- EXPERIENCE TAB ---
+      - name: experience_tab
+        label: "Experience Content"
+        type: list
         fields:
-          - { label: "Full Name", name: "name", widget: "string" }
-          - { label: "Title Tag", name: "title_tag", widget: "string" }
-          - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - name: role
+            label: "Job Title"
+            type: string
+          - name: company
+            label: "Company Name"
+            type: string
+          - name: timeline
+            label: "Dates Worked"
+            type: string
+          - name: bullet_points
+            label: "Bullet Points"
+            type: list
+            field: { type: string, label: "Bullet" }
 
-  - name: "experience"
-    label: "Professional Experience"
-    folder: "data/experience" # Creates markdown or JSON files per role
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Company Name", name: "company", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., July 2016 - Present" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int", hint: "Higher number shows first" }
-      - label: "Responsibilities"
-        name: "bullet_points"
-        widget: "list"
-        summary: "{{fields.point}}"
-        field: { label: "Bullet Point", name: "point", widget: "string" }
+      # --- EDUCATION TAB ---
+      - name: education_tab
+        label: "Education Content"
+        type: list
+        fields:
+          - name: degree
+            label: "Degree/Certificate"
+            type: string
+          - name: school
+            label: "School/Institution"
+            type: string
+          - name: date
+            label: "Graduation Date"
+            type: string
+          - name: core_focus
+            label: "Focus/Major"
+            type: string
+          - name: description
+            label: "Short Description"
+            type: text
 
-  - name: "education"
-    label: "Education Tracks"
-    folder: "data/education"
-    create: true
-    fields:
-      - { label: "Degree/Program Type", name: "degree", widget: "string", hint: "e.g., Graduate Program" }
-      - { label: "Institution", name: "institution", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., Expected May 2026" }
-      - { label: "Specialization Title", name: "specialization", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
+      # --- ACADEMIC WORK TAB ---
+      - name: academic_tab
+        label: "Academic Portfolio"
+        type: list
+        fields:
+          - name: tag
+            label: "Category Tag (e.g. Urban Design)"
+            type: string
+          - name: title
+            label: "Project Title"
+            type: string
+          - name: description
+            label: "Project Details"
+            type: text
 
-  - name: "academic_work"
-    label: "Academic Works Dashboard"
-    folder: "data/portfolio"
-    create: true
-    fields:
-      - { label: "Course / Topic Tag", name: "tag", widget: "string", hint: "e.g., UCF / AI Automation" }
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Project Description", name: "description", widget: "text" }
-      - { label: "PDF File Link", name: "file_link", widget: "file", required: false, hint: "Upload or select your project PDF" }
-      - { label: "Link Text", name: "link_text", widget: "string", default: "View Project", hint: "e.g., View Research Proposal" }
-
-  - name: "competencies"
-    label: "Core Competencies"
-    folder: "data/competencies"
-    create: true
-    fields:
-      - { label: "Skill Category", name: "category", widget: "string", hint: "e.g., Operational Excellence" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
-      - label: "Skills (Pills)"
-        name: "pills"
-        widget: "list"
-        field: { label: "Skill Name", name: "skill_name", widget: "string" }
+      # --- COMPETENCYS/SKILLS TAB ---
+      - name: skills_tab
+        label: "Skills & Clusters"
+        type: list
+        fields:
+          - name: category_title
+            label: "Group Title (e.g. Front-End)"
+            type: string
+          - name: skills_pills
+            label: "Individual Skills"
+            type: list
+            field: { type: string, label: "Skill Tag" }
