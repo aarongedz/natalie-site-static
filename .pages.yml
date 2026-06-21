@@ -8,11 +8,14 @@ content:
         type: file
         path: _data/profile.yml
         fields:
-          - { name: name, label: "Name", type: string }
-          - { name: tagline, label: "Tagline", type: string }
-          - { name: phone, label: "Phone", type: string }
-          - { name: email, label: "Email", type: string }
-          - { name: linkedin, label: "LinkedIn URL", type: string }
+          - name: data # We wrap these in a 'data' object to match the HTML
+            type: object
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: tagline, label: "Tagline", type: string }
+              - { name: phone, label: "Phone", type: string }
+              - { name: email, label: "Email", type: string }
+              - { name: linkedin, label: "LinkedIn URL", type: string }
 
       - name: experience
         label: Experience
@@ -49,20 +52,3 @@ content:
               - { name: date, label: "Date", type: string }
               - { name: focus, label: "Focus", type: string }
               - { name: description, label: "Description", type: text }
-
-      - name: competencies
-        label: Competencies
-        type: file
-        path: _data/competencies.yml
-        view: { primary: title }
-        fields:
-          - name: items
-            label: Skill Groups
-            type: object
-            list: true
-            fields:
-              - { name: title, label: "Group Title", type: string }
-              - name: pills
-                label: "Skills"
-                type: string
-                list: true
