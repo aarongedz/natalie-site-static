@@ -13,21 +13,18 @@ content:
           - { name: phone, label: "Phone", type: string }
           - { name: email, label: "Email", type: string }
 
-  - name: portfolio
-    label: "Portfolio Data"
-    type: group
-    items:
-      - name: experiences
-        label: "Experience"
-        type: collection
-        path: "_data/experiences"
-        format: yaml
-        summary: "{role} — {company}"
+  - name: experience
+    label: "Experience"
+    type: file
+    path: "_data/experience.yml"
+    # This 'view' block tells the CMS how to render the sidebar items
+    view:
+      primary: "role" 
+    fields:
+      - name: items
+        label: "Experience Items"
+        type: list
         fields:
           - { name: role, label: "Role", type: string }
           - { name: company, label: "Company", type: string }
           - { name: timeline, label: "Timeline", type: string }
-          - name: bullets
-            label: "Bullets"
-            type: list
-            field: { type: string, label: "Bullet" }
