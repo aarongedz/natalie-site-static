@@ -1,75 +1,745 @@
----
----
-backend:
-  name: github
-  repo: your-username/your-repo-name # Replace with your GitHub username and repo name
-  branch: main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natalie Romeo | Portfolio</title>
+    <style>
+        :root {
+            --bg-main: #fcf8f9;
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            
+            --color-lavender: #8287F8;
+            --color-plum: #41163B;
+            --color-sky: #81C0DF;
+            --color-orchid: #9783C3;
+            --color-pink: #EECED8;
+            --color-green: #3C7132;
+            --color-navy: #394A6F;
+            
+            --text-main: var(--color-navy);
+            --text-muted: #5e6f8a;
+            --border: rgba(151, 131, 195, 0.15);
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
 
-media_folder: "assets"
-public_folder: "assets"
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-collections:
-  - name: "profile"
-    label: "Profile Settings"
-    delete: false # Prevents accidental deletion of global settings
-    files:
-      - file: "data/profile.json" # Best paired with a static data file or handled directly in your build step
-        label: "General Profile & Contact Info"
-        name: "general"
-        fields:
-          - { label: "Full Name", name: "name", widget: "string" }
-          - { label: "Title Tag", name: "title_tag", widget: "string" }
-          - { label: "Phone Number", name: "phone", widget: "string" }
-          - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            
+            /* 1. Force the layout to lock onto the window frame */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            
+            /* 2. Dynamically subtract Safari's tab bars and toolbars */
+            height: 100svh;
+            max-height: 100svh;
+            
+            display: flex;
+            overflow: hidden;
+        }
 
-  - name: "experience"
-    label: "Professional Experience"
-    folder: "data/experience" # Creates markdown or JSON files per role
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Company Name", name: "company", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., July 2016 - Present" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int", hint: "Higher number shows first" }
-      - label: "Responsibilities"
-        name: "bullet_points"
-        widget: "list"
-        summary: "{{fields.point}}"
-        field: { label: "Bullet Point", name: "point", widget: "string" }
+        .bubble-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(129, 192, 223, 0.25) 0%, transparent 70%);
+            bottom: -150px;
+            right: -100px;
+            pointer-events: none;
+            z-index: 0;
+            animation: bounceFloat 10s infinite alternate ease-in-out;
+        }
 
-  - name: "education"
-    label: "Education Tracks"
-    folder: "data/education"
-    create: true
-    fields:
-      - { label: "Degree/Program Type", name: "degree", widget: "string", hint: "e.g., Graduate Program" }
-      - { label: "Institution", name: "institution", widget: "string" }
-      - { label: "Dates (Badge)", name: "date_badge", widget: "string", hint: "e.g., Expected May 2026" }
-      - { label: "Specialization Title", name: "specialization", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
+        .bubble-2 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(238, 206, 216, 0.4) 0%, transparent 70%);
+            top: -100px;
+            right: 200px;
+            pointer-events: none;
+            z-index: 0;
+            animation: bounceFloat 7s infinite alternate-reverse ease-in-out;
+        }
 
-  - name: "academic_work"
-    label: "Academic Works Dashboard"
-    folder: "data/portfolio"
-    create: true
-    fields:
-      - { label: "Course / Topic Tag", name: "tag", widget: "string", hint: "e.g., UCF / AI Automation" }
-      - { label: "Project Title", name: "title", widget: "string" }
-      - { label: "Project Description", name: "description", widget: "text" }
-      - { label: "PDF File Link", name: "file_link", widget: "file", required: false, hint: "Upload or select your project PDF" }
-      - { label: "Link Text", name: "link_text", widget: "string", default: "View Project", hint: "e.g., View Research Proposal" }
+        @keyframes bounceFloat {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-25px) scale(1.05); }
+        }
 
-  - name: "competencies"
-    label: "Core Competencies"
-    folder: "data/competencies"
-    create: true
-    fields:
-      - { label: "Skill Category", name: "category", widget: "string", hint: "e.g., Operational Excellence" }
-      - { label: "Order", name: "order", widget: "number", value_type: "int" }
-      - label: "Skills (Pills)"
-        name: "pills"
-        widget: "list"
-        field: { label: "Skill Name", name: "skill_name", widget: "string" }
+        .sidebar {
+            width: 320px;
+            min-width: 320px;
+            max-width: 320px;
+            height: 100%;        /* Changed from 100vh to scale perfectly within the fixed body limits */
+            background-color: var(--bg-sidebar);
+            border-right: 2px solid rgba(130, 135, 248, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 45px 30px;  /* Spacing remains exactly as requested */
+            z-index: 10;
+            position: relative;
+            box-shadow: 4px 0 25px rgba(57, 74, 111, 0.03);
+            flex-shrink: 0;
+        }
+
+        .profile-block {
+            margin-bottom: 40px;
+        }
+
+        .profile-block h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: var(--color-plum);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .profile-block .title-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-green);
+            background-color: rgba(60, 113, 50, 0.08);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.25s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--color-plum);
+            background: rgba(130, 135, 248, 0.05);
+        }
+
+        .tab-btn.active {
+            color: var(--color-plum);
+            background: linear-gradient(90deg, rgba(238, 206, 216, 0.4) 0%, rgba(129, 192, 223, 0.1) 100%);
+            border: 1px solid rgba(151, 131, 195, 0.2);
+            box-shadow: 0 4px 12px rgba(151, 131, 195, 0.05);
+        }
+
+        .contact-info {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            border-top: 1px dashed var(--border);
+            padding-top: 30px;
+            background-color: var(--bg-sidebar);
+            z-index: 12;
+            flex-shrink: 0; /* Prevents it from crushing or altering size on load */
+            margin-top: auto; /* Guarantees it pushes to the absolute bottom of the flexbox */
+        }
+
+        .contact-line {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+
+        .contact-line svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: var(--color-lavender);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .contact-line a {
+            color: var(--color-navy);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-line a:hover {
+            color: var(--color-lavender);
+        }
+
+        .main-viewport {
+            flex-grow: 1;
+            height: 100%;        /* Changed from 100vh to anchor tightly inside the active window */
+            padding: 60px;
+            overflow-y: auto;
+            position: relative;
+            z-index: 1;
+            scroll-behavior: smooth;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(4px); /* Greatly reduced to prevent massive layout shifts */
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: cheerfulFadeIn 0.3s ease-out forwards;
+        }
+
+        @keyframes cheerfulFadeIn {
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .top-menu-group {
+            flex-grow: 1;
+        }
+
+        .pane-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: var(--color-plum);
+            margin-bottom: 35px;
+        }
+
+        .pane-title span {
+            color: var(--color-lavender);
+        }
+
+        .happy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(57, 74, 111, 0.02);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .happy-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(130, 135, 248, 0.08);
+            border-color: rgba(129, 192, 223, 0.5);
+        }
+
+        .card-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-meta h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--color-plum);
+        }
+
+        .card-meta .company {
+            font-size: 1.05rem;
+            color: var(--color-orchid);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .card-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background-color: rgba(129, 192, 223, 0.12);
+            color: var(--color-navy);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(129, 192, 223, 0.2);
+        }
+
+        .card-body-text ul {
+            list-style: none;
+        }
+
+        .card-body-text ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 1.02rem;
+            color: var(--color-navy);
+        }
+
+        .card-body-text ul li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--color-lavender);
+            font-weight: bold;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .artifact-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-lavender);
+            box-shadow: 0 15px 35px rgba(130, 135, 248, 0.06);
+        }
+
+        .artifact-tag {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-green);
+            background: rgba(60, 113, 50, 0.08);
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .artifact-card h4 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--color-plum);
+            margin-bottom: 10px;
+        }
+
+        .artifact-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-lavender);
+            text-decoration: none;
+            border-top: 1px dashed var(--border);
+            padding-top: 15px;
+            transition: color 0.2s;
+        }
+
+        .artifact-card:hover .action-link {
+            color: var(--color-orchid);
+        }
+
+        .skills-pane-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .skills-pane-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skills-pane-box h4 {
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--color-plum);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--color-pink);
+            padding-bottom: 12px;
+            min-height: 54px;
+            display: flex;
+            align-items: center;
+            line-height: 1.3;
+        }
+
+        .pill-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .pill {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: var(--color-navy);
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .pill:hover {
+            background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-orchid) 100%);
+            color: #ffffff;
+            border-color: transparent;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(130, 135, 248, 0.15);
+        }
+
+        @media (max-width: 900px) {
+            body { 
+                flex-direction: column; 
+                overflow-y: auto !important; /* Force browser to re-enable scrolling thread */
+                position: static;            /* Completely removes the fixed desktop frame lock */
+                width: 100%;                 /* Reverts desktop 100vw to standard scaling */
+                height: auto; 
+                max-height: none; 
+            }
+            .sidebar { 
+                width: 100%; 
+                max-width: 100%; 
+                min-width: 100%; 
+                height: auto; 
+                border-right: none; 
+                border-bottom: 2px solid rgba(130, 135, 248, 0.1); 
+                padding: 35px 25px;          /* Slightly tighter padding for smaller phone viewports */
+            }
+            .main-viewport { 
+                height: auto; 
+                padding: 30px; 
+                overflow-y: visible; 
+            }
+            .skills-pane-box h4 { 
+                min-height: auto; 
+                padding-bottom: 6px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bubble-1"></div>
+    <div class="bubble-2"></div>
+
+    <aside class="sidebar">
+        <div class="top-menu-group">
+            <div class="profile-block">
+                <h1>Natalie Romeo</h1>
+                <span class="title-tag">strategic Leadership</span>
+            </div>
+
+            <nav class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab(event, 'pane-exp')">Experience</button>
+                <button class="tab-btn" onclick="switchTab(event, 'pane-edu')">Education</button>
+                <button class="tab-btn" onclick="switchTab(event, 'pane-portfolio')">Academic Work</button>
+                <button class="tab-btn" onclick="switchTab(event, 'pane-skills')">Competencies</button>
+            </nav>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-line">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>732-882-9688</span>
+            </div>
+            <div class="contact-line">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:natalieromeo20@gmail.com">natalieromeo20@gmail.com</a>
+            </div>
+            <div class="contact-line">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <a href="https://www.linkedin.com/in/natalieeromeo/" target="_blank">LinkedIn Profile</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-viewport">
+
+        <!-- Tab 1: Experience -->
+        <div id="pane-exp" class="tab-content active">
+            <h2 class="pane-title">Professional <span>Experience</span></h2>
+            
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>Park Entertainment Operations</h3>
+                        <div class="company">Walt Disney World</div>
+                    </div>
+                    <span class="card-badge">July 2016 - Present</span>
+                </div>
+                <div class="card-body-text">
+                    <ul>
+                        <li>Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences.</li>
+                        <li>Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>Sales Operations Associate</h3>
+                        <div class="company">Disney Springs</div>
+                    </div>
+                    <span class="card-badge">November 2020 - September 2021</span>
+                </div>
+                <div class="card-body-text">
+                    <ul>
+                        <li>Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers.</li>
+                        <li>Supervised precise inventory organization, back-end spatial layout tracking, and procedural standard documentation to support high-traffic logistics and 10+ exclusive product release events.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>International Entertainment Operations Contract</h3>
+                        <div class="company">Hong Kong Disneyland • Hong Kong, China</div>
+                    </div>
+                    <span class="card-badge">April 2018 - November 2018</span>
+                </div>
+                <div class="card-body-text">
+                    <ul>
+                        <li>Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules, strict crowd safety capacities, and operational timeline matrices in a multicultural park environment welcoming 15,000+ daily visitors.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>International Entertainment Operations Contract</h3>
+                        <div class="company">Tokyo Disney Resort • Tokyo, Japan</div>
+                    </div>
+                    <span class="card-badge">February 2015 - April 2016</span>
+                </div>
+                <div class="card-body-text">
+                    <ul>
+                        <li>Ensured precise operational timeline deployment across major seasonal and community relations programs, maintaining exceptional execution standards within a rigorous compliance framework.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Education -->
+        <div id="pane-edu" class="tab-content">
+            <h2 class="pane-title">Education <span>Tracks</span></h2>
+            
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>Graduate Program</h3>
+                        <div class="company">University of Central Florida</div>
+                    </div>
+                    <span class="card-badge">Expected May 2026</span>
+                </div>
+                <div class="card-body-text">
+                    <p style="font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; color: var(--color-plum);">Digital Humanities in the Age of AI</p>
+                    <p style="color: var(--text-muted); margin-bottom: 12px;">Advanced curriculum focusing on text discovery, pattern modeling, and data analytics tools designed to maximize project workflow efficiency.</p>
+                </div>
+            </div>
+
+            <div class="happy-card">
+                <div class="card-header-flex">
+                    <div class="card-meta">
+                        <h3>Bachelor of Science</h3>
+                        <div class="company">Wilmington University</div>
+                    </div>
+                    <span class="card-badge">Graduated December 2023</span>
+                </div>
+                <div class="card-body-text">
+                    <p style="font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; color: var(--color-plum);">Organizational Dynamics</p>
+                    <p style="color: var(--text-muted);">Academic specialization tracking organizational structures, matrix hierarchy alignments, operational resource tracking, and strategic business data models.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Academic Portfolio Showcase with Download Links Built In -->
+        <div id="pane-portfolio" class="tab-content">
+            <h2 class="pane-title">Academic <span>Works Dashboard</span></h2>
+            
+            <div class="grid-layout">
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">UCF / AI Automation</span>
+                        <h4>Course Design Plan Framework</h4>
+                        <p>Constructed an operational project framework applying automated data and text analysis tools. Utilized Claude and NotebookLM platforms to interpret patterns, saving 50% in research and development timelines.</p>
+                    </div>
+                    <!--<a href="Natalie Romeo Resume.pdf" class="action-link" download>Download Project Summary</a>-->
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Operational Strategy</span>
+                        <h4>Bella's Bakery Matrix Study</h4>
+                        <p>Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways, information pipelines, and communications hierarchies to bypass operational deficiencies.</p>
+                    </div>
+                    <a href="assets/Business-Report-Project.pdf" class="action-link" target="_blank">View Business Report</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Sustainability</span>
+                        <h4>Green City Design Proposal</h4>
+                        <p>Formulated an urban environmental framework plan for Downtown Winter Garden incorporating urban agriculture community spaces, high/low pressure sodium energy savings grids, and pervious concrete street layouts.</p>
+                    </div>
+                    <a href="assets/Green-City-Design.pdf" class="action-link" target="_blank">View Sustainability Study</a>
+                </div>
+                
+                <!-- Disney Streaming Success Card -->
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Market Research</span>
+                        <h4>Disney Streaming Success</h4>
+                        <p>Conducted a mixed-methods research proposal evaluating the correlation between public opinion on cultural representation and subscriber retention metrics on Disney+. Developed a mixed methodology using demographic Likert-scale surveys alongside revenue data to analyze institutional brand perception versus active consumer usage patterns.</p>
+                    </div>
+                    <a href="assets/Final-Research-Proposal.pdf" class="action-link" target="_blank">View Research Proposal</a>
+                </div>
+                
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Culture Analysis</span>
+                        <h4>The Walt Disney Culture Inventory</h4>
+                        <p>Executed an intensive seven-week organizational assessment mapping cast member onboarding traditions, corporate core values, inclusion strategies, and cultural frameworks against day-to-day service execution models.</p>
+                    </div>
+                    <a href="assets/Cultural-Analysis-Report.pdf" class="action-link" target="_blank">View Culture Analysis</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Script Architecture</span>
+                        <h4>Comic Script: "Superpowers"</h4>
+                        <p>Created a comprehensive comic panel script architecture for LIT313 tracking structured scene pacing grids, emotional expressions, character narrative development fields, and mindfulness storytelling frameworks.</p>
+                    </div>
+                    <a href="assets/Comic-Story.pdf" class="action-link" target="_blank">View Script Architecture</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Qualitative Analysis</span>
+                        <h4>Breaking the Glass Ceiling Study</h4>
+                        <p>Compiled an academic research synthesis for ENG310 analyzing organizational bias mitigation infrastructure, workplace equity barriers, and corporate sponsorship programs for aspiring women entrepreneurs.</p>
+                    </div>
+                    <a href="assets/ENG310-Breaking-the-Glass-Ceiling.pdf" class="action-link" target="_blank">View Qualitative Study</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Historical Synthesis</span>
+                        <h4>The Significance of Ballroom Culture Today</h4>
+                        <p>Authored a comprehensive historical research report analyzing the multi-generational impact of Ballroom culture, kinship structures, and safe space refuges within modern multiracial communities.</p>
+                    </div>
+                    <a href="assets/the-importance-of-ballroom-culture-today.pdf" class="action-link" target="_blank">View Historical Paper</a>
+                </div>
+
+                <div class="artifact-card">
+                    <div>
+                        <span class="artifact-tag">WilmU / Fiction Writing</span>
+                        <h4>Harmony: A Cultural History Narrative</h4>
+                        <p>Wrote an evocative literary piece tracking traditional Confucian moral principles and historical ideologies against a changing industrial backdrop during mid-20th century China.</p>
+                    </div>
+                    <a href="assets/Harmony.pdf" class="action-link" target="_blank">View Narrative Paper</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Competencies -->
+        <div id="pane-skills" class="tab-content">
+            <h2 class="pane-title">Core <span>Competencies</span></h2>
+            
+            <div class="skills-pane-grid">
+                <div class="skills-pane-box">
+                    <h4>Event & Production Support</h4>
+                    <div class="pill-cluster">
+                        <span class="pill">Logistics Coordination</span>
+                        <span class="pill">Show Element Integration</span>
+                        <span class="pill">Itinerary & Schedule Mapping</span>
+                        <span class="pill">Budget Tracking Support</span>
+                        <span class="pill">Media Activation Support</span>
+                        <span class="pill">Promotional Sign-offs</span>
+                    </div>
+                </div>
+
+                <div class="skills-pane-box">
+                    <h4>Operational Excellence</h4>
+                    <div class="pill-cluster">
+                        <span class="pill">Cross-Functional Team Leadership</span>
+                        <span class="pill">High-Traffic Crowd Control (15,000+)</span>
+                        <span class="pill">Dynamic Problem Solving</span>
+                        <span class="pill">Multicultural Communication</span>
+                        <span class="pill">Inventory & Spatial Optimization</span>
+                    </div>
+                </div>
+
+                <div class="skills-pane-box">
+                    <h4>Systems & AI Arrays</h4>
+                    <div class="pill-cluster">
+                        <span class="pill">Claude Code / Automation Studio</span>
+                        <span class="pill">NotebookLM / Data Synthesis</span>
+                        <span class="pill">Microsoft Visio / Process Mapping</span>
+                        <span class="pill">Adobe Photoshop Layout Design</span>
+                        <span class="pill">HTML5 & CSS3 Responsive Interfaces</span>
+                        <span class="pill">Microsoft Office (Excel PivotTables, Word, PPT)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(event, tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(pane => pane.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector('.main-viewport').scrollTop = 0;
+        }
+    </script>
+</body>
+</html>
