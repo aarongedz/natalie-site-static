@@ -1,93 +1,50 @@
+# .pages.yml at your repository root
+
 media:
-  input: public/media
-  output: /media
+  path: public/images # Or assets/images, where your pictures go
 
 content:
-  - name: portfolio_data
-    label: "Portfolio Editor"
+  # --- EXAMPLE 1: A SINGLE EXPLICIT FILE (e.g., your home page or an academic profile card) ---
+  - name: homepage
+    label: Homepage Content
     type: file
-    path: "data.json"
-    format: json
+    path: index.md # The exact path to the file in your repo
+    format: yaml-frontmatter
     fields:
-      - name: name
-        label: "Profile Name"
+      - name: title
+        label: Page Title
         type: string
-      - name: tagline
-        label: "Professional Tagline"
+        required: true
+      - name: description
+        label: Meta Description
         type: string
-      - name: phone
-        label: "Phone Number"
-        type: string
-      - name: email
-        label: "Email Address"
-        type: string
-      - name: linkedin
-        label: "LinkedIn Label"
-        type: string
+      - name: body
+        label: Main Body Content
+        type: rich-text # This gives you the Notion-like visual editor
 
-      - name: experience
-        label: "Professional Experience"
-        type: list
-        fields:
-          - name: role
-            label: "Role/Title"
-            type: string
-          - name: company
-            label: "Company/Organization"
-            type: string
-          - name: timeline
-            label: "Employment Dates"
-            type: string
-          - name: bullet_points
-            label: "Key Accomplishments"
-            type: list
-            field: { type: string }
+  # --- EXAMPLE 2: A COLLECTION OF SIMILAR FILES (e.g., projects, posts, or slices) ---
+  - name: projects
+    label: My Projects
+    type: collection
+    path: content/projects # The folder where markdown files are stored
+    format: yaml-frontmatter
+    filename: "{primary}.md" # Automatically names the file based on the 'primary' view key below
+    view:
+      fields: [title, date]
+      primary: title
+      sort: [date]
+    fields:
+      - name: title
+        label: Project Name
+        type: string
+        required: true
+      - name: date
+        label: Date Published
+        type: date
+      - name: body
+        label: Project Details
+        type: rich-text
 
-      - name: education
-        label: "Education Tracks"
-        type: list
-        fields:
-          - name: degree
-            label: "Degree / Program Track"
-            type: string
-          - name: school
-            label: "University or Institution"
-            type: string
-          - name: date
-            label: "Graduation Date"
-            type: string
-          - name: core_focus
-            label: "Core Specialization Focus"
-            type: string
-          - name: description
-            label: "Track Breakdown/Description"
-            type: text
-
-      - name: academic_work
-        label: "Academic Works Dashboard"
-        type: list
-        fields:
-          - name: tag
-            label: "Institution / Subject Tag"
-            type: string
-          - name: title
-            label: "Project Title"
-            type: string
-          - name: description
-            label: "Project Overview"
-            type: text
-          - name: link_label
-            label: "Resource Link Label"
-            type: string
-
-      - name: competencies
-        label: "Core Competencies"
-        type: list
-        fields:
-          - name: category_title
-            label: "Competency Cluster Title"
-            type: string
-          - name: skills_pills
-            label: "Skills / Skills Pills"
-            type: list
-            field: { type: string }
+settings:
+  content:
+    merge: true # Keeps outside key properties from getting deleted when saving
