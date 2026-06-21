@@ -3,6 +3,20 @@ content:
     label: Portfolio Data
     type: group
     items:
+      - name: profile
+        label: Profile Info
+        type: file
+        path: _data/profile.yml
+        fields:
+          - name: data # We wrap these in a 'data' object to match the HTML
+            type: object
+            fields:
+              - { name: name, label: "Name", type: string }
+              - { name: tagline, label: "Tagline", type: string }
+              - { name: phone, label: "Phone", type: string }
+              - { name: email, label: "Email", type: string }
+              - { name: linkedin, label: "LinkedIn URL", type: string }
+
       - name: experience
         label: Experience
         type: file
@@ -26,7 +40,7 @@ content:
         label: Education
         type: file
         path: _data/education.yml
-        view: { primary: degree } # This fixes the [object Object] issue for education
+        view: { primary: degree }
         fields:
           - name: items
             label: Education Items
