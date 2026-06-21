@@ -1,19 +1,4 @@
 content:
-  - name: settings
-    label: "Site Settings"
-    type: group
-    items:
-      - name: profile
-        label: "Profile Info"
-        type: file
-        path: "_data/profile.yml"
-        fields:
-          - { name: name, label: "Name", type: string }
-          - { name: tagline, label: "Tagline", type: string }
-          - { name: phone, label: "Phone", type: string }
-          - { name: email, label: "Email", type: string }
-
-content:
   - name: portfolio_data
     label: Portfolio Data
     type: group
