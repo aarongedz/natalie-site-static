@@ -1,20 +1,17 @@
-# .pages.yml at your repository root
 media:
   input: public/media
   output: /media
 
 content:
-  - name: portfolio
-    label: "Natalie Romeo Portfolio"
+  - name: portfolio_data
+    label: "Portfolio Editor"
     type: file
-    path: "index.html" # Points directly to your template file
-    format: yaml-frontmatter # Treats the top of your HTML file as the CMS database
+    path: "data.json"
+    format: json
     fields:
-      # --- Profile Meta (Sidebar Strings) ---
       - name: name
         label: "Profile Name"
         type: string
-        required: true
       - name: tagline
         label: "Professional Tagline"
         type: string
@@ -24,8 +21,10 @@ content:
       - name: email
         label: "Email Address"
         type: string
+      - name: linkedin
+        label: "LinkedIn Label"
+        type: string
 
-      # --- Tab 1: Experience (Repeater List) ---
       - name: experience
         label: "Professional Experience"
         type: list
@@ -40,11 +39,10 @@ content:
             label: "Employment Dates"
             type: string
           - name: bullet_points
-            label: "Key Accomplishments (One per line)"
+            label: "Key Accomplishments"
             type: list
             field: { type: string }
 
-      # --- Tab 2: Education (Repeater List) ---
       - name: education
         label: "Education Tracks"
         type: list
@@ -65,7 +63,6 @@ content:
             label: "Track Breakdown/Description"
             type: text
 
-      # --- Tab 3: Academic Portfolio (Grid Repeater) ---
       - name: academic_work
         label: "Academic Works Dashboard"
         type: list
@@ -83,7 +80,6 @@ content:
             label: "Resource Link Label"
             type: string
 
-      # --- Tab 4: Core Competencies (Nested Categorized Lists) ---
       - name: competencies
         label: "Core Competencies"
         type: list
