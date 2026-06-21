@@ -11,7 +11,9 @@ content:
       - { name: email, label: "Email Address", type: string }
       - { name: linkedin, label: "LinkedIn URL", type: string }
 
-  - name: experience
+# Update your .pages.yml like this:
+
+- name: experience
     label: "2. Experience"
     type: file
     path: "_data/experience.yml"
@@ -19,7 +21,8 @@ content:
       - name: items
         label: "Experience Items"
         type: list
-        list_label: role  # <--- THIS IS THE KEY FIX
+        # This creates a readable label for every item in the list
+        summary: "{role} - {company}" 
         fields:
           - { name: role, label: "Job Title", type: string }
           - { name: company, label: "Company", type: string }
@@ -28,6 +31,20 @@ content:
             label: "Bullets"
             type: list
             field: { type: string, label: "Bullet" }
+
+  - name: education
+    label: "3. Education"
+    type: file
+    path: "_data/education.yml"
+    fields:
+      - name: items
+        label: "Education Tracks"
+        type: list
+        list_label: degree # <--- THIS IS THE KEY FIX
+        fields:
+          - { name: degree, label: "Degree", type: string }
+          - { name: school, label: "School", type: string }
+          # ... rest of your fields
 
   - name: education
     label: "3. Education"
