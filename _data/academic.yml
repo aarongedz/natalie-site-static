@@ -1,46 +1,64 @@
 items:
-  - tag: "UCF / AI Automation"
-    title: "Course Design Plan Framework"
-    desc: "Constructed an operational project framework applying automated data and text analysis tools. Utilized Claude and NotebookLM platforms to interpret patterns, saving 50% in research and development timelines."
-    link: ""
-    link_text: ""
-  - tag: "WilmU / Operational Strategy"
-    title: "Bella's Bakery Matrix Study"
-    desc: "Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways, information pipelines, and communications hierarchies to bypass operational deficiencies."
-    link: "assets/Business-Report-Project.pdf"
-    link_text: "View Business Report"
-  - tag: "WilmU / Sustainability"
-    title: "Green City Design Proposal"
-    desc: "Formulated an urban environmental framework plan for Downtown Winter Garden incorporating urban agriculture community spaces, high/low pressure sodium energy savings grids, and pervious concrete street layouts."
-    link: "assets/Green-City-Design.pdf"
-    link_text: "View Sustainability Study"
-  - tag: "WilmU / Market Research"
-    title: "Disney Streaming Success"
-    desc: "Conducted a mixed-methods research proposal evaluating the correlation between public opinion on cultural representation and subscriber retention metrics on Disney+. Developed a mixed methodology using demographic Likert-scale surveys alongside revenue data to analyze institutional brand perception versus active consumer usage patterns."
-    link: "assets/Final-Research-Proposal.pdf"
-    link_text: "View Research Proposal"
-  - tag: "WilmU / Culture Analysis"
-    title: "The Walt Disney Culture Inventory"
-    desc: "Executed an intensive seven-week organizational assessment mapping cast member onboarding traditions, corporate core values, inclusion strategies, and cultural frameworks against day-to-day service execution models."
-    link: "assets/Cultural-Analysis-Report.pdf"
-    link_text: "View Culture Analysis"
-  - tag: "WilmU / Script Architecture"
-    title: "Comic Script: \"Superpowers\""
-    desc: "Created a comprehensive comic panel script architecture for LIT313 tracking structured scene pacing grids, emotional expressions, character narrative development fields, and mindfulness storytelling frameworks."
-    link: "assets/Comic-Story.pdf"
-    link_text: "View Script Architecture"
-  - tag: "WilmU / Qualitative Analysis"
-    title: "Breaking the Glass Ceiling Study"
-    desc: "Compiled an academic research synthesis for ENG310 analyzing organizational bias mitigation infrastructure, workplace equity barriers, and corporate sponsorship programs for aspiring women entrepreneurs."
-    link: "assets/ENG310-Breaking-the-Glass-Ceiling.pdf"
-    link_text: "View Qualitative Study"
-  - tag: "WilmU / Historical Synthesis"
-    title: "The Significance of Ballroom Culture Today"
-    desc: "Authored a comprehensive historical research report analyzing the multi-generational impact of Ballroom culture, kinship structures, and safe space refuges within modern multiracial communities."
-    link: "assets/the-importance-of-ballroom-culture-today.pdf"
-    link_text: "View Historical Paper"
-  - tag: "WilmU / Fiction Writing"
+  - tag: UCF / AI Automation
+    title: Course Design Plan Framework
+    desc: Constructed an operational project framework applying automated data and
+      text analysis tools. Utilized Claude and NotebookLM platforms to interpret
+      patterns, saving 50% in research and development timelines.
+  - tag: WilmU / Operational Strategy
+    title: Bella's Bakery Matrix Study
+    desc: Designed a multi-regional matrix organization expansion report detailing
+      specialized personnel pathways, information pipelines, and communications
+      hierarchies to bypass operational deficiencies.
+    link: /assets/Business-Report-Project.pdf
+    link_text: View Business Report
+  - tag: WilmU / Sustainability
+    title: Green City Design Proposal
+    desc: Formulated an urban environmental framework plan for Downtown Winter
+      Garden incorporating urban agriculture community spaces, high/low pressure
+      sodium energy savings grids, and pervious concrete street layouts.
+    link: /assets/Green-City-Design.pdf
+    link_text: View Sustainability Study
+  - tag: WilmU / Market Research
+    title: Disney Streaming Success
+    desc: Conducted a mixed-methods research proposal evaluating the correlation
+      between public opinion on cultural representation and subscriber retention
+      metrics on Disney+. Developed a mixed methodology using demographic
+      Likert-scale surveys alongside revenue data to analyze institutional brand
+      perception versus active consumer usage patterns.
+    link: /assets/Final-Research-Proposal.pdf
+    link_text: View Research Proposal
+  - tag: WilmU / Culture Analysis
+    title: The Walt Disney Culture Inventory
+    desc: Executed an intensive seven-week organizational assessment mapping cast
+      member onboarding traditions, corporate core values, inclusion strategies,
+      and cultural frameworks against day-to-day service execution models.
+    link: /assets/Cultural-Analysis-Report.pdf
+    link_text: View Culture Analysis
+  - tag: WilmU / Script Architecture
+    title: 'Comic Script: "Superpowers"'
+    desc: Created a comprehensive comic panel script architecture for LIT313
+      tracking structured scene pacing grids, emotional expressions, character
+      narrative development fields, and mindfulness storytelling frameworks.
+    link: /assets/Comic-Story.pdf
+    link_text: View Script Architecture
+  - tag: WilmU / Qualitative Analysis
+    title: Breaking the Glass Ceiling Study
+    desc: Compiled an academic research synthesis for ENG310 analyzing
+      organizational bias mitigation infrastructure, workplace equity barriers,
+      and corporate sponsorship programs for aspiring women entrepreneurs.
+    link: /assets/ENG310-Breaking-the-Glass-Ceiling.pdf
+    link_text: View Qualitative Study
+  - tag: WilmU / Historical Synthesis
+    title: The Significance of Ballroom Culture Today
+    desc: Authored a comprehensive historical research report analyzing the
+      multi-generational impact of Ballroom culture, kinship structures, and
+      safe space refuges within modern multiracial communities.
+    link: /assets/the-importance-of-ballroom-culture-today.pdf
+    link_text: View Historical Paper
+  - tag: WilmU / Fiction Writing
     title: "Harmony: A Cultural History Narrative"
-    desc: "Wrote an evocative literary piece tracking traditional Confucian moral principles and historical ideologies against a changing industrial backdrop during mid-20th century China."
-    link: "assets/Harmony.pdf"
-    link_text: "View Narrative Paper"
+    desc: Wrote an evocative literary piece tracking traditional Confucian moral
+      principles and historical ideologies against a changing industrial
+      backdrop during mid-20th century China.
+    link: /assets/Harmony.pdf
+    link_text: View Narrative Paper
