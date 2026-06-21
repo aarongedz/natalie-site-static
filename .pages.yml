@@ -1,24 +1,50 @@
-# Pages CMS Configuration
+# pages-cms.yml
 collections:
-  - label: "Posts" # Change this to match your content type
-    name: "posts"
-    folder: "content/posts" # UPDATE THIS: path to your markdown files
+  - label: "Experience"
+    name: "experience"
+    folder: "content/experience" # Create this folder in your repo
     create: true
-    slug: "{{slug}}"
+    format: "yaml" # Assuming you are storing data as YAML or JSON
+    fields:
+      - label: "Company"
+        name: "company"
+        widget: "string"
+      - label: "Role"
+        name: "role"
+        widget: "string"
+      - label: "Date Range"
+        name: "dates"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+
+  - label: "Education"
+    name: "education"
+    folder: "content/education"
+    create: true
+    fields:
+      - label: "Institution"
+        name: "institution"
+        widget: "string"
+      - label: "Degree"
+        name: "degree"
+        widget: "string"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+
+  - label: "Projects"
+    name: "projects"
+    folder: "content/projects"
+    create: true
     fields:
       - label: "Title"
         name: "title"
         widget: "string"
-        required: true
-      - label: "Date"
-        name: "date"
-        widget: "datetime"
-      - label: "Body"
-        name: "body"
+      - label: "Link"
+        name: "url"
+        widget: "string"
+      - label: "Summary"
+        name: "summary"
         widget: "markdown"
-        required: true
-      # Add more fields based on your existing frontmatter
-      # Example:
-      # - label: "Image"
-      #   name: "thumbnail"
-      #   widget: "image"
