@@ -7,7 +7,6 @@ media:
 
 content:
   - name: portfolio
-    label: Portfolio Data
     type: group
     items:
       - name: profile
