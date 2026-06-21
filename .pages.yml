@@ -11,7 +11,7 @@ content:
     type: group
     items:
       - name: profile
-        label: Profile Info
+        label: Name & Contact Info
         type: file
         path: _data/profile.yml
         fields:
