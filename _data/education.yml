@@ -1,11 +1,13 @@
 items:
-  - degree: "Graduate Certificate in AI Automation (In-Progress)"
-    school: "University of Central Florida"
-    date: "2026 - Present"
-    focus: "AI Automation and Data Synthesis"
-    description: "Focusing on advanced digital humanities and the integration of AI tools for research and operational efficiency."
-  - degree: "Bachelor of Science in Business Management"
-    school: "Wilmington University"
-    date: "2023 - 2026"
-    focus: "Human Resource Management"
-    description: "Coursework and projects including Urban Agriculture Energy Grids, Organizational Culture Inventories, and Strategic Business Matrix Design."
+  - degree: Graduate Certificate in AI Automation
+    school: University of Central Florida
+    date: 2026 - Present
+    focus: AI Automation and Data Synthesis
+    description: Focusing on advanced digital humanities and the integration of AI
+      tools for research and operational efficiency.
+  - degree: Bachelor of Science in Business Management
+    school: Wilmington University
+    date: Graduated in 2023
+    focus: Human Resource Management
+    description: Coursework and projects including Urban Agriculture Energy Grids,
+      Organizational Culture Inventories, and Strategic Business Matrix Design.
