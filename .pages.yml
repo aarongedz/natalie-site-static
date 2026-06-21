@@ -3,3 +3,26 @@ tagline: "Strategic Leadership"
 phone: "732-882-9688"
 email: "natalieromeo20@gmail.com"
 linkedin: "https://www.linkedin.com/in/natalieeromeo/"
+
+items:
+  - role: "Park Entertainment Operations"
+    company: "Walt Disney World"
+    timeline: "July 2016 - Present"
+    bullets:
+      - "Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences."
+      - "Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths."
+  - role: "Sales Operations Associate"
+    company: "Disney Springs"
+    timeline: "November 2020 - September 2021"
+    bullets:
+      - "Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers."
+  - role: "International Entertainment Operations Contract"
+    company: "Hong Kong Disneyland • Hong Kong, China"
+    timeline: "April 2018 - November 2018"
+    bullets:
+      - "Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules."
+  - role: "International Entertainment Operations Contract"
+    company: "Tokyo Disney Resort • Tokyo, Japan"
+    timeline: "February 2015 - April 2016"
+    bullets:
+      - "Ensured precise operational timeline deployment across major seasonal and community relations programs."
