@@ -37,7 +37,7 @@ content:
     fields:
       - name: items
         label: "Education Tracks"
-        type: list
+        type: collection
         fields:
           - { name: degree, label: "Degree/Certificate", type: string }
           - { name: school, label: "Institution", type: string }
