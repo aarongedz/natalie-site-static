@@ -1,5 +1,7 @@
 items:
   - title: "Event & Production Support"
-    pills: ["Logistics Coordination", "Show Element Integration", "Itinerary & Schedule Mapping"]
+    pills: ["Logistics Coordination", "Show Element Integration", "Itinerary & Schedule Mapping", "Budget Tracking Support", "Media Activation Support", "Promotional Sign-offs"]
   - title: "Operational Excellence"
-    pills: ["Cross-Functional Team Leadership", "High-Traffic Crowd Control", "Dynamic Problem Solving"]
+    pills: ["Cross-Functional Team Leadership", "High-Traffic Crowd Control (15,000+)", "Dynamic Problem Solving", "Multicultural Communication", "Inventory & Spatial Optimization"]
+  - title: "Systems & AI Arrays"
+    pills: ["Claude Code / Automation Studio", "NotebookLM / Data Synthesis", "Microsoft Visio / Process Mapping", "Adobe Photoshop Layout Design", "HTML5 & CSS3 Responsive Interfaces", "Microsoft Office (Excel PivotTables, Word, PPT)"]

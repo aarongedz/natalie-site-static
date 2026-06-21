@@ -1,11 +1,23 @@
 items:
-  - degree: "Graduate Program"
-    school: "University of Central Florida"
-    date: "Expected May 2026"
-    focus: "Digital Humanities in the Age of AI"
-    description: "Advanced curriculum focusing on text discovery, pattern modeling, and data analytics tools designed to maximize project workflow efficiency."
-  - degree: "Bachelor of Science"
-    school: "Wilmington University"
-    date: "Graduated December 2023"
-    focus: "Organizational Dynamics"
-    description: "Academic specialization tracking organizational structures, matrix hierarchy alignments, operational resource tracking, and strategic business data models."
+  - role: Park Entertainment Operations
+    company: Walt Disney World
+    timeline: July 2016 - Present
+    bullets:
+      - Coordinate complex operational logistics and execution parameters for over 30 special events, promotional activations, media appearances, and guest-facing live experiences.
+      - Manage real-time schedule adjustments, location handoffs, and resource coordination to guarantee fluid, seamless production execution paths.
+  - role: Sales Operations Associate
+    company: Disney Springs
+    timeline: November 2020 - September 2021
+    bullets:
+      - Maintained high-efficiency operational workflows across 4+ fast-paced retail locations serving over 3,000 daily consumers.
+      - Supervised precise inventory organization, back-end spatial layout tracking, and procedural standard documentation to support high-traffic logistics and 10+ exclusive product release events.
+  - role: International Entertainment Operations Contract
+    company: Hong Kong Disneyland • Hong Kong, China
+    timeline: April 2018 - November 2018
+    bullets:
+      - Acted as a primary cross-functional liaison between global leadership tracks, facilitating daily schedules, strict crowd safety capacities, and operational timeline matrices in a multicultural park environment welcoming 15,000+ daily visitors.
+  - role: International Entertainment Operations Contract
+    company: Tokyo Disney Resort • Tokyo, Japan
+    timeline: February 2015 - April 2016
+    bullets:
+      - Ensured precise operational timeline deployment across major seasonal and community relations programs, maintaining exceptional execution standards within a rigorous compliance framework.
