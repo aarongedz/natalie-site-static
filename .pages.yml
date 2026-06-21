@@ -1,70 +1,23 @@
 content:
   - name: portfolio_data
-    label: "Portfolio Data"
+    label: Portfolio Data
     type: group
     items:
       - name: experience
-        label: "Experience"
+        label: Experience
         type: file
-        path: "_data/experience.yml"
-        view: { primary: "role" } # Fixes [object Object]
+        path: _data/experience.yml
+        # The primary key must exist in your YAML file
+        view: { primary: role }
         fields:
           - name: items
-            label: "Experience Items"
+            label: Experience Items
             type: list
             fields:
               - { name: role, label: "Role", type: string }
               - { name: company, label: "Company", type: string }
               - { name: timeline, label: "Timeline", type: string }
               - name: bullets
-                label: "Bullets"
+                label: Bullets
                 type: list
                 field: { type: string, label: "Bullet" }
-
-      - name: education
-        label: "Education"
-        type: file
-        path: "_data/education.yml"
-        view: { primary: "degree" } # Fixes [object Object]
-        fields:
-          - name: items
-            label: "Education Items"
-            type: list
-            fields:
-              - { name: degree, label: "Degree", type: string }
-              - { name: school, label: "School", type: string }
-              - { name: date, label: "Date", type: string }
-              - { name: focus, label: "Focus", type: string }
-              - { name: description, label: "Description", type: text }
-
-      - name: academic
-        label: "Academic Work"
-        type: file
-        path: "_data/academic.yml"
-        view: { primary: "title" } # Fixes [object Object]
-        fields:
-          - name: items
-            label: "Projects"
-            type: list
-            fields:
-              - { name: tag, label: "Tag", type: string }
-              - { name: title, label: "Title", type: string }
-              - { name: desc, label: "Description", type: text }
-              - { name: link, label: "Link", type: string }
-              - { name: link_text, label: "Link Text", type: string }
-
-      - name: competencies
-        label: "Competencies"
-        type: file
-        path: "_data/competencies.yml"
-        view: { primary: "title" } # Fixes [object Object]
-        fields:
-          - name: items
-            label: "Skill Groups"
-            type: list
-            fields:
-              - { name: title, label: "Group Title", type: string }
-              - name: pills
-                label: "Skills"
-                type: list
-                field: { type: string, label: "Skill" }
