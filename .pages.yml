@@ -19,14 +19,29 @@ content:
       - name: items
         label: "Experience Items"
         type: list
+        list_label: role  # <--- THIS IS THE KEY FIX
         fields:
           - { name: role, label: "Job Title", type: string }
-          - { name: company, label: "Company / Location", type: string }
-          - { name: timeline, label: "Dates Active", type: string }
+          - { name: company, label: "Company", type: string }
+          - { name: timeline, label: "Dates", type: string }
           - name: bullets
-            label: "Accomplishment Bullets"
+            label: "Bullets"
             type: list
-            field: { type: string, label: "Bullet Line" }
+            field: { type: string, label: "Bullet" }
+
+  - name: education
+    label: "3. Education"
+    type: file
+    path: "_data/education.yml"
+    fields:
+      - name: items
+        label: "Education Tracks"
+        type: list
+        list_label: degree # <--- THIS IS THE KEY FIX
+        fields:
+          - { name: degree, label: "Degree", type: string }
+          - { name: school, label: "School", type: string }
+          # ... rest of your fields
 
   - name: education
     label: "3. Education"
