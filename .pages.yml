@@ -1,3 +1,10 @@
+media:
+  - name: assets
+    label: "Assets"
+    input: "assets/uploads"
+    output: "/assets/uploads"
+    categories: [image, document]
+
 content:
   - name: portfolio
     label: Portfolio Data
