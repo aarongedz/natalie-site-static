@@ -26,3 +26,32 @@ items:
     timeline: "February 2015 - April 2016"
     bullets:
       - "Ensured precise operational timeline deployment across major seasonal and community relations programs."
+
+items:
+  - degree: "Graduate Program"
+    school: "University of Central Florida"
+    date: "Expected May 2026"
+    focus: "Digital Humanities in the Age of AI"
+    description: "Advanced curriculum focusing on text discovery, pattern modeling, and data analytics tools designed to maximize project workflow efficiency."
+  - degree: "Bachelor of Science"
+    school: "Wilmington University"
+    date: "Graduated December 2023"
+    focus: "Organizational Dynamics"
+    description: "Academic specialization tracking organizational structures, matrix hierarchy alignments, operational resource tracking, and strategic business data models."
+
+items:
+  - tag: "UCF / AI Automation"
+    title: "Course Design Plan Framework"
+    desc: "Constructed an operational project framework applying automated data and text analysis tools."
+    link: ""
+    link_text: ""
+  - tag: "WilmU / Operational Strategy"
+    title: "Bella's Bakery Matrix Study"
+    desc: "Designed a multi-regional matrix organization expansion report detailing specialized personnel pathways."
+    link: "assets/Business-Report-Project.pdf"
+    link_text: "View Business Report"
+items:
+  - title: "Event & Production Support"
+    pills: ["Logistics Coordination", "Show Element Integration", "Itinerary & Schedule Mapping"]
+  - title: "Operational Excellence"
+    pills: ["Cross-Functional Team Leadership", "High-Traffic Crowd Control", "Dynamic Problem Solving"]
