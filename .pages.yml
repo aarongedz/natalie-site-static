@@ -1,85 +1,55 @@
-media:
-  path: assets/images
-
+# .pages.yml
 content:
-  - name: portfolio_content
-    label: "Portfolio Tabs Editor"
+  - name: portfolio_home
+    label: "Master Website Editor"
     type: file
-    path: "data.json"   # This is the file the CMS will write to
-    format: json
+    path: "index.html"
+    format: yaml-frontmatter
     fields:
-      # --- SIDE NAV / MAIN META ---
-      - name: name
-        label: "Profile Name"
-        type: string
-      - name: tagline
-        label: "Professional Tagline"
-        type: string
-
-      # --- EXPERIENCE TAB ---
+      - { name: name, label: "Profile Name", type: string }
+      - { name: tagline, label: "Professional Tagline", type: string }
+      - { name: phone, label: "Phone Number", type: string }
+      - { name: email, label: "Email Address", type: string }
+      - { name: linkedin, label: "LinkedIn URL", type: string }
+        
       - name: experience_tab
-        label: "Experience Content"
+        label: "Experience Items"
         type: list
         fields:
-          - name: role
-            label: "Job Title"
-            type: string
-          - name: company
-            label: "Company Name"
-            type: string
-          - name: timeline
-            label: "Dates Worked"
-            type: string
-          - name: bullet_points
-            label: "Bullet Points"
+          - { name: role, label: "Job Title", type: string }
+          - { name: company, label: "Company / Location", type: string }
+          - { name: timeline, label: "Dates Active", type: string }
+          - name: bullets
+            label: "Accomplishment Bullets"
             type: list
-            field: { type: string, label: "Bullet" }
+            field: { type: string, label: "Bullet Line" }
 
-      # --- EDUCATION TAB ---
       - name: education_tab
-        label: "Education Content"
+        label: "Education Tracks"
         type: list
         fields:
-          - name: degree
-            label: "Degree/Certificate"
-            type: string
-          - name: school
-            label: "School/Institution"
-            type: string
-          - name: date
-            label: "Graduation Date"
-            type: string
-          - name: core_focus
-            label: "Focus/Major"
-            type: string
-          - name: description
-            label: "Short Description"
-            type: text
+          - { name: degree, label: "Degree / Certificate", type: string }
+          - { name: school, label: "Institution", type: string }
+          - { name: date, label: "Graduation Date", type: string }
+          - { name: focus, label: "Specialization Focus", type: string }
+          - { name: description, label: "Overview", type: text }
 
-      # --- ACADEMIC WORK TAB ---
       - name: academic_tab
-        label: "Academic Portfolio"
+        label: "Academic Portfolio Dashboard"
         type: list
         fields:
-          - name: tag
-            label: "Category Tag (e.g. Urban Design)"
-            type: string
-          - name: title
-            label: "Project Title"
-            type: string
-          - name: description
-            label: "Project Details"
-            type: text
+          - { name: tag, label: "Card Category Tag", type: string }
+          - { name: title, label: "Project Title", type: string }
+          - { name: desc, label: "Project Description", type: text }
+          - { name: link, label: "Asset File Path (e.g., assets/file.pdf)", type: string }
+          - { name: link_text, label: "Button Display Text", type: string }
 
-      # --- COMPETENCYS/SKILLS TAB ---
       - name: skills_tab
-        label: "Skills & Clusters"
+        label: "Core Competency Domains"
         type: list
         fields:
-          - name: category_title
-            label: "Group Title (e.g. Front-End)"
-            type: string
-          - name: skills_pills
-            label: "Individual Skills"
+          - { name: title, label: "Domain Category Title", type: string }
+          - name: pills
+            label: "Competency Pills / Tags"
             type: list
             field: { type: string, label: "Skill Tag" }
