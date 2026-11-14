@@ -4,13 +4,13 @@ items:
     desc: Constructed an operational project framework applying automated data and
       text analysis tools. Utilized Claude and NotebookLM platforms to interpret
       patterns, saving 50% in research and development timelines.
-  - tag: WilmU / Operational Strategy
-    title: Bella's Bakery Matrix Study
-    desc: Designed a multi-regional matrix organization expansion report detailing
-      specialized personnel pathways, information pipelines, and communications
-      hierarchies to bypass operational deficiencies.
-    link: /assets/Business-Report-Project.pdf
-    link_text: View Business Report
+  - tag: "Photoshop Course Project "
+    title: Surreal Collage "Castle in the Clouds"
+    desc: >
+      Created a surreal imagery collage using layering masks, blending
+      techniques and filters. 
+    link: /assets/photoshop project.jpg
+    link_text: "Surreal Collage "
   - tag: WilmU / Sustainability
     title: Green City Design Proposal
     desc: Formulated an urban environmental framework plan for Downtown Winter
@@ -27,6 +27,13 @@ items:
       perception versus active consumer usage patterns.
     link: /assets/Final-Research-Proposal.pdf
     link_text: View Research Proposal
+  - tag: WilmU / Operational Strategy
+    title: Bella's Bakery Matrix Study
+    desc: Designed a multi-regional matrix organization expansion report detailing
+      specialized personnel pathways, information pipelines, and communications
+      hierarchies to bypass operational deficiencies.
+    link: /assets/Business-Report-Project.pdf
+    link_text: View Business Report
   - tag: WilmU / Culture Analysis
     title: The Walt Disney Culture Inventory
     desc: Executed an intensive seven-week organizational assessment mapping cast
@@ -82,10 +89,3 @@ items:
       modern organization.
     link: /assets/Workplace Ethics Training and Development Program 2-1.pdf
     link_text: View Developmental Program Presentation
-  - tag: "Photoshop Course Project "
-    title: Surreal Collage "Castle in the Clouds"
-    desc: >
-      Created a surreal imagery collage using layering masks, blending
-      techniques and filters. 
-    link: /assets/photoshop project.jpg
-    link_text: "Surreal Collage "
