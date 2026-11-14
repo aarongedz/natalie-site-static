@@ -11,13 +11,6 @@ items:
       techniques and filters. 
     link: /assets/photoshop project.jpg
     link_text: "Surreal Collage "
-  - tag: WilmU / Sustainability
-    title: Green City Design Proposal
-    desc: Formulated an urban environmental framework plan for Downtown Winter
-      Garden incorporating urban agriculture community spaces, high/low pressure
-      sodium energy savings grids, and pervious concrete street layouts.
-    link: /assets/Green-City-Design.pdf
-    link_text: View Sustainability Study
   - tag: WilmU / Market Research
     title: Disney Streaming Success
     desc: Conducted a mixed-methods research proposal evaluating the correlation
@@ -41,6 +34,13 @@ items:
       and cultural frameworks against day-to-day service execution models.
     link: /assets/Cultural-Analysis-Report.pdf
     link_text: View Culture Analysis
+  - tag: WilmU / Sustainability
+    title: Green City Design Proposal
+    desc: Formulated an urban environmental framework plan for Downtown Winter
+      Garden incorporating urban agriculture community spaces, high/low pressure
+      sodium energy savings grids, and pervious concrete street layouts.
+    link: /assets/Green-City-Design.pdf
+    link_text: View Sustainability Study
   - tag: WilmU / Script Architecture
     title: 'Comic Script: "Superpowers"'
     desc: Created a comprehensive comic panel script architecture for LIT313
